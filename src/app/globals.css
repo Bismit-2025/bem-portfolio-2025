@@ -5,15 +5,37 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --font-sans: var(--font-poppins);
+
+  /* --- PACIL BLUE --- */
+  --color-pacil-blue-50:  #F4F8FC;
+  --color-pacil-blue-100: #EAF2F9;
+  --color-pacil-blue-200: #D4E5F4;
+  --color-pacil-blue-300: #BED8EF;
+  --color-pacil-blue-400: #92BDE5;
+  --color-pacil-blue-500: #66A1DB;
+  --color-pacil-blue-600: #4D93D6;
+  --color-pacil-blue-700: #3293EC;
+  --color-pacil-blue-800: #2E72B1; 
+  --color-pacil-blue-900: #22629E;
+  --color-pacil-blue-950: #133657; 
+
+  /* --- PACIL RED --- */
+  --color-pacil-red-50:  #FDF5F5;
+  --color-pacil-red-100: #FBECEC;
+  --color-pacil-red-200: #F7D8D9;
+  --color-pacil-red-300: #F3C4C6;
+  --color-pacil-red-400: #EC9D9F;
+  --color-pacil-red-500: #E67679;
+  --color-pacil-red-600: #E8595F;
+  --color-pacil-red-700: #EA3C43;
+  --color-pacil-red-800: #C52B31;
+  --color-pacil-red-900: #9E1C21;
+  --color-pacil-red-950: #5E0A0D;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
