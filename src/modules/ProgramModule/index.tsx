@@ -1,5 +1,13 @@
+import Overview from "./sections/overview";
+import OurPrograms from "./sections/our-programs";
+
 const ProgramModule = () => {
-  return <p>Halo Program</p>;
+  return (
+    <>
+      <Overview />
+      <OurPrograms />
+    </>
+  );
 };
 
 export default ProgramModule;
