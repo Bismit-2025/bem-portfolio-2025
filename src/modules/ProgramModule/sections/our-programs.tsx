@@ -33,7 +33,7 @@ export default function OurPrograms() {
             </button>
           </div>
           <div className="flex gap-2">
-            <button className="px-5 py-3 bg-[#22629E] text-white text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
+            <button className="px-5 py-3 max-md:py-1 bg-[#22629E] text-white text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
               <svg
                 width="20"
                 height="20"
@@ -48,7 +48,7 @@ export default function OurPrograms() {
               </svg>
               Filter
             </button>
-            <button className="px-5 py-3 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
+            <button className="px-5 py-3 max-md:py-1 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
