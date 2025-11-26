@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function ProjectFilter() {
   const [activeTab, setActiveTab] = useState("internal");
   return (
-    <div className="flex flex-col">
+    <div id="programs" className="flex flex-col pt-30">
       <div className="flex justify-center w-full font-semibold">
         <button
           onClick={() => setActiveTab("internal")}
@@ -27,8 +27,8 @@ export default function ProjectFilter() {
           External
         </button>
       </div>
-      <div className="rounded-t-2xl flex flex-col gap-10 px-15 max-md:px-10 max-md:bg-transparent max-md:border-0 max-md:shadow-none border py-10 border-gray-100 shadow-2xl w-full">
-        <div className="w-full shadow-xl bg-white  rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3">
+      <div className="rounded-t-2xl flex flex-col gap-10 px-15 max-md:px-10 max-md:bg-transparent max-md:border-0 max-md:drop-shadow-none border py-10 border-gray-100 drop-shadow-2xl w-full">
+        <div className="w-full drop-shadow-lg bg-white  rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3">
           <div className="bg-gray-200 aspect-3/2 max-md:aspect-video max-md:h-auto h-76 overflow-hidden rounded-xl"></div>
           <div className="flex flex-col grow gap-6 justify-between">
             <div className="flex flex-col gap-7 max-md:gap-4">
@@ -45,7 +45,7 @@ export default function ProjectFilter() {
                 totam animi sit sed enim provident?
               </p>
             </div>
-            <button className="px-5 py-3 bg-[#22629E] text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
+            <button className="px-5 py-3 bg-pacil-blue-900 text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -62,7 +62,7 @@ export default function ProjectFilter() {
             </button>
           </div>
         </div>
-        <div className="w-full shadow-xl bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3">
+        <div className="w-full drop-shadow-lg bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3">
           <div className="bg-gray-200 aspect-3/2 max-md:aspect-video max-md:h-auto h-76 overflow-hidden rounded-xl"></div>
           <div className="flex flex-col grow gap-6 justify-between">
             <div className="flex flex-col gap-7 max-md:gap-4">
@@ -79,7 +79,7 @@ export default function ProjectFilter() {
                 totam animi sit sed enim provident?
               </p>
             </div>
-            <button className="px-5 py-3 bg-[#22629E] text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
+            <button className="px-5 py-3 bg-pacil-blue-900 text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

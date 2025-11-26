@@ -1,7 +1,7 @@
+"use client"
+
 import Impact from "./sections/impact";
 import OurClients from "./sections/our-clients";
-
-
 
 interface ProgramDetailProps {
   data: ProgramData;
@@ -23,7 +23,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
           onClick={() => {
             window.location.href = `/${variant}`;
           }}
-          className="aspect-square w-12 rounded-full shadow-xl bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
+          className="aspect-square w-12 rounded-full drop-shadow-lg bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
         >
           <svg
             width="12"
@@ -41,14 +41,13 @@ const DetailModule = ({ data, variant }: DetailProps) => {
       </div>
       <div className="flex flex-col gap-6 px-15 max-lg:px-10 max-md:px-5">
         <div className="flex w-full justify-between max-md:flex-col">
-          <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold bg-linear-to-r text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43]">
-            Nama Program
+          <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold bg-linear-to-r text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
+            {data.name}
           </h1>
           <h1 className="font-semibold text-3xl max-lg:text-xl">April 2026</h1>
         </div>
         <p className="text-xl max-md:text-base">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          velit odio similique eum? Tenetur, veniam.
+          {data.desc}
         </p>
       </div>
       <div className="overflow-hidden w-full pb-4 md:pb-10 lg:pb-15 flex justify-center">
@@ -60,7 +59,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
               className="w-full h-full object-cover"
             />
             <div className="bg-white absolute rounded-t-xl max-lg:py-4 max-lg:px-2 px-4 py-6 text-center w-full bottom-0">
-              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43]">
+              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
                 Nama Momen
               </span>
             </div>
@@ -72,7 +71,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
               className="w-full h-full object-cover"
             />
             <div className="bg-white absolute rounded-t-xl max-lg:py-4 max-lg:px-2 px-4 py-6 text-center w-full bottom-0">
-              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43]">
+              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
                 Nama Momen
               </span>
             </div>
@@ -84,7 +83,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
               className="w-full h-full object-cover"
             />
             <div className="bg-white absolute rounded-t-xl max-lg:py-4 max-lg:px-2 px-4 py-6 text-center w-full bottom-0">
-              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43]">
+              <span className="text-4xl max-lg:text-2xl font-bold bg-linear-to-r text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
                 Nama Momen
               </span>
             </div>

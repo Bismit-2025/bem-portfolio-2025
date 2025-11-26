@@ -48,7 +48,7 @@ export default function Impact() {
             </svg>
           </button>
 
-          <h1 className="font-bold text-5xl max-lg:text-4xl bg-linear-to-r font-poppins text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43]">
+          <h1 className="font-bold text-5xl max-lg:text-4xl bg-linear-to-r font-poppins text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
             Impact
           </h1>
 
@@ -80,12 +80,12 @@ export default function Impact() {
           <div
             key={card.id}
             className={`
-              bg-white border border-neutral-100 shadow-lg flex flex-col justify-between items-center overflow-hidden rounded-xl aspect-square 
+              bg-white border border-neutral-100 drop-shadow-lg flex flex-col justify-between items-center overflow-hidden rounded-xl aspect-square 
               w-full lg:w-96 
               ${index === currentCardIndex ? "max-md:block" : "max-md:hidden"} 
             `}
           >
-            <h1 className="font-bold text-[#22629E] text-lg p-3">
+            <h1 className="font-bold text-pacil-blue-900 text-lg p-3">
               {card.title}
             </h1>
             {/* Isi card lainnya */}

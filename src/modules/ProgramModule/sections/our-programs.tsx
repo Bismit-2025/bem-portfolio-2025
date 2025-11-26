@@ -1,11 +1,13 @@
-export default function OurPrograms() {
+"use client"
+
+export default function OurPrograms({ data }: { data: ProgramData[] }) {
   return (
     <section
       id="our-programs"
-      className=" flex flex-col w-full justify-center max-md:justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-[#22629E]/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
+      className=" flex flex-col w-full justify-center max-md:justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
     >
       <div className="relative flex flex-col items-center w-full gap-8">
-        <h1 className="bg-linear-to-r text-6xl font-poppins font-bold text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43] max-lg:text-4xl">
+        <h1 className="bg-linear-to-r text-6xl font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-4xl">
           Our Programs
         </h1>
         <div className="flex justify-between gap-4 w-full max-md:flex-col max-md:gap-2">
@@ -17,7 +19,7 @@ export default function OurPrograms() {
               placeholder="Search..."
             />
 
-            <button className="bg-white rounded-lg p-3 max-md:rounded-full shadow-xl hover:opacity-90 transition-all">
+            <button className="bg-white rounded-lg p-3 max-md:rounded-full drop-shadow-lg hover:opacity-90 transition-all">
               <svg
                 width="20"
                 height="20"
@@ -33,7 +35,7 @@ export default function OurPrograms() {
             </button>
           </div>
           <div className="flex gap-2">
-            <button className="px-5 py-3 max-md:py-1 bg-[#22629E] text-white text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
+            <button className="px-5 py-3 max-md:py-1 bg-pacil-blue-900 text-white text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
               <svg
                 width="20"
                 height="20"
@@ -65,40 +67,47 @@ export default function OurPrograms() {
             </button>
           </div>
         </div>
-        <div className="w-full shadow-xl bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3">
-          <div className="bg-gray-200 aspect-3/2 max-md:aspect-video max-md:h-auto h-76 overflow-hidden rounded-xl"></div>
-          <div className="flex flex-col grow gap-6 justify-between">
-            <div className="flex flex-col gap-7 max-md:gap-4">
-              <div className="flex w-full justify-between">
-                <h1 className="text-3xl font-bold max-md:text-lg">
-                  Project Name
-                </h1>
-                <h6 className="font-bold text-lg max-md:text-xs max-md:text-gray-500 max-md:font-semibold">
-                  April 2026
-                </h6>
+        {data.map((p, idx) => (
+          <div
+            key={idx}
+            className="w-full drop-shadow-lg bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3"
+          >
+            <div className="bg-gray-200 aspect-3/2 max-md:aspect-video max-md:h-auto h-76 overflow-hidden rounded-xl"></div>
+            <div className="flex flex-col grow gap-6 justify-between">
+              <div className="flex flex-col gap-7 max-md:gap-4">
+                <div className="flex w-full justify-between">
+                  <h1 className="text-3xl font-bold max-md:text-lg">
+                    {p.name}
+                  </h1>
+                  <h6 className="font-bold text-lg max-md:text-xs max-md:text-gray-500 max-md:font-semibold">
+                    {p.date}
+                  </h6>
+                </div>
+                <p className="max-md:text-xs">{p.desc}</p>
               </div>
-              <p className="max-md:text-xs">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
-                totam animi sit sed enim provident?
-              </p>
-            </div>
-            <button className="px-5 py-3 bg-[#22629E] text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
+              <button
+                onClick={() => {
+                  window.location.href = `/program/${p.id}`;
+                }}
+                className="px-5 py-3 bg-pacil-blue-900 text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all"
               >
-                <path
-                  d="M16.3333 17.5L11.0833 12.25C10.6667 12.5833 10.1875 12.8472 9.64583 13.0417C9.10417 13.2361 8.52778 13.3333 7.91667 13.3333C6.40278 13.3333 5.12167 12.8089 4.07333 11.76C3.025 10.7111 2.50056 9.43 2.5 7.91667C2.49944 6.40333 3.02389 5.12222 4.07333 4.07333C5.12278 3.02444 6.40389 2.5 7.91667 2.5C9.42944 2.5 10.7108 3.02444 11.7608 4.07333C12.8108 5.12222 13.335 6.40333 13.3333 7.91667C13.3333 8.52778 13.2361 9.10417 13.0417 9.64583C12.8472 10.1875 12.5833 10.6667 12.25 11.0833L17.5 16.3333L16.3333 17.5ZM7.91667 11.6667C8.95833 11.6667 9.84389 11.3022 10.5733 10.5733C11.3028 9.84444 11.6672 8.95889 11.6667 7.91667C11.6661 6.87444 11.3017 5.98917 10.5733 5.26083C9.845 4.5325 8.95944 4.16778 7.91667 4.16667C6.87389 4.16556 5.98861 4.53028 5.26083 5.26083C4.53306 5.99139 4.16833 6.87667 4.16667 7.91667C4.165 8.95667 4.52972 9.84222 5.26083 10.5733C5.99195 11.3044 6.87722 11.6689 7.91667 11.6667Z"
-                  fill="white"
-                />
-              </svg>
-              See Details
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                >
+                  <path
+                    d="M16.3333 17.5L11.0833 12.25C10.6667 12.5833 10.1875 12.8472 9.64583 13.0417C9.10417 13.2361 8.52778 13.3333 7.91667 13.3333C6.40278 13.3333 5.12167 12.8089 4.07333 11.76C3.025 10.7111 2.50056 9.43 2.5 7.91667C2.49944 6.40333 3.02389 5.12222 4.07333 4.07333C5.12278 3.02444 6.40389 2.5 7.91667 2.5C9.42944 2.5 10.7108 3.02444 11.7608 4.07333C12.8108 5.12222 13.335 6.40333 13.3333 7.91667C13.3333 8.52778 13.2361 9.10417 13.0417 9.64583C12.8472 10.1875 12.5833 10.6667 12.25 11.0833L17.5 16.3333L16.3333 17.5ZM7.91667 11.6667C8.95833 11.6667 9.84389 11.3022 10.5733 10.5733C11.3028 9.84444 11.6672 8.95889 11.6667 7.91667C11.6661 6.87444 11.3017 5.98917 10.5733 5.26083C9.845 4.5325 8.95944 4.16778 7.91667 4.16667C6.87389 4.16556 5.98861 4.53028 5.26083 5.26083C4.53306 5.99139 4.16833 6.87667 4.16667 7.91667C4.165 8.95667 4.52972 9.84222 5.26083 10.5733C5.99195 11.3044 6.87722 11.6689 7.91667 11.6667Z"
+                    fill="white"
+                  />
+                </svg>
+                See Details
+              </button>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

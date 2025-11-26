@@ -2,6 +2,7 @@ import PortfolioModule from "@/modules/PortfolioModule";
 
 const dummyPortfolioData: PortfolioData[] = [
   {
+    id:"rpmj",
     name: "Revitalisasi Branding PT. Maju Jaya",
     desc: "Proyek rebranding total, mulai dari logo, tone of voice, hingga pedoman visual untuk adaptasi digital.",
     link: "https://www.majujaya.com/case-study",
@@ -19,6 +20,7 @@ const dummyPortfolioData: PortfolioData[] = [
     ]
   },
   {
+    id:"pams",
     name: "Pengembangan Aplikasi Mobile 'SehatKu'",
     desc: "Pembangunan aplikasi pelacak kesehatan end-to-end, mencakup fitness tracker, jadwal obat, dan konsultasi online.",
     link: "https://appstore.com/sehatku",
@@ -36,6 +38,7 @@ const dummyPortfolioData: PortfolioData[] = [
     ]
   },
   {
+    id:"smiog",
     name: "Sistem Manajemen Inventaris Otomatisasi Gudang",
     desc: "Penerapan sistem barcode dan RFID untuk otomatisasi pencatatan dan pelacakan stok barang di gudang logistik.",
     link: "https://internal.logistik-prima.com/system",
@@ -53,6 +56,7 @@ const dummyPortfolioData: PortfolioData[] = [
     ]
   },
   {
+    id:"wefg",
     name: "Website E-Commerce Fesyen 'GayaKita'",
     desc: "Desain dan pengembangan website e-commerce yang responsif dan memiliki fitur custom order untuk produk fesyen.",
     link: "https://www.gayakita.co.id",
@@ -70,6 +74,7 @@ const dummyPortfolioData: PortfolioData[] = [
     ]
   },
   {
+    id:"kpdbs",
     name: "Kampanye Pemasaran Digital 'Bebas Sampah'",
     desc: "Kampanye kesadaran sosial menggunakan platform media sosial, video pendek, dan influencer untuk mengurangi sampah plastik.",
     link: "https://ig.com/bebassampah-campaign",

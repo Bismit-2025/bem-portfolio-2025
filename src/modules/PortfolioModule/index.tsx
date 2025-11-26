@@ -3,7 +3,7 @@ import ProjectFilter from "./sections/project-filter";
 
 const PortfolioModule = () => {
   return (
-    <main className="flex flex-col gap-10 w-full">
+    <main className="flex flex-col gap-10 w-full lg:-translate-y-30">
       <About/>
       <ProjectFilter/>
     </main>

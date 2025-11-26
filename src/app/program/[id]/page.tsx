@@ -1,6 +1,7 @@
 import DetailModule from "@/modules/DetailProgramModule";
 
 const program: ProgramData = {
+  id: "wdux",
   name: "Workshop Desain UX Dasar",
   desc: "Program pelatihan intensif untuk mempelajari prinsip dasar Desain Pengalaman Pengguna (UX) selama 3 hari.",
   date: "2025-07-15",

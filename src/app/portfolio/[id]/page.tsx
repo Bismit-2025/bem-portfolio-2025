@@ -1,6 +1,7 @@
 import DetailModule from "@/modules/DetailProgramModule";
 
 const portfolio: PortfolioData = {
+  id: "rbpmj",
   name: "Revitalisasi Branding PT. Maju Jaya",
   desc: "Proyek rebranding total, mulai dari logo, tone of voice, hingga pedoman visual untuk adaptasi digital.",
   link: "https://www.majujaya.com/case-study",

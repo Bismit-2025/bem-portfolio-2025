@@ -11,6 +11,7 @@ interface ImpactDetail {
 }
 
 interface BaseData {
+  id: string;
   name: string;
   desc: string;
   moments: string[];

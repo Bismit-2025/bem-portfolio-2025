@@ -1,21 +1,51 @@
+"use client";
 import PhotoMarquee from "./photo-marquee";
+
+const photos1 = [
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+];
+
+const photos2 = [
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+];
 
 export default function About() {
   return (
-    <section className="w-full px-20 h-screen relative">
-      <div className="absolute bottom-0 w-full h-32 bg-linear-to-t from-white to-transparent"></div>
-      <div className="flex gap-10 w-full h-full">
-        <PhotoMarquee />
-        <div className="flex flex-col justify-center items-center gap-4">
-          <h1 className="text-6xl bg-linear-to-r max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43] max-lg:text-3xl">
-            Portfolio
-          </h1>
-          <p className="text-center text-wrap text-lg max-md:text-sm">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eius
-            consequuntur minima molestias obcaecati placeat libero eum voluptate
-            delectus omnis.
-          </p>
-          <button className="px-5 py-3 bg-[#22629E] text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all">
+    <section className="w-full h-full relative">
+      <div className="absolute z-10 -top-5 w-full h-32 bg-white max-lg:hidden"></div>
+      <div className="absolute z-10 -bottom-0.5 w-full h-32 bg-linear-to-t from-white to-transparent"></div>
+      <div className="flex gap-15 w-full h-screen overflow-hidden justify-center max-lg:items-start max-lg:pt-15">
+        <PhotoMarquee
+          items={photos1}
+          direction="up"
+          className="max-lg:hidden"
+        />
+        <div className="flex flex-col justify-center items-center gap-10 max-w-150 w-auto">
+          <div className="flex flex-col gap-4 justify-center items-center">
+            <h1 className="text-6xl bg-linear-to-r max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-3xl">
+              Portfolio
+            </h1>
+            <p className="text-center text-wrap text-lg max-md:text-sm">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
+              eius consequuntur minima molestias obcaecati placeat libero eum
+              voluptate delectus omnis.
+            </p>
+            <button
+              onClick={() => {
+                document.getElementById("programs")?.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+              className="w-fit px-5 py-3 bg-pacil-blue-900 text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -30,8 +60,24 @@ export default function About() {
               </svg>
               Explore More
             </button>
+          </div>
+          <div className="h-10"></div>
+          <PhotoMarquee
+            items={photos1}
+            direction="left"
+            className="lg:hidden"
+          />
+          <PhotoMarquee
+            items={photos1}
+            direction="right"
+            className="lg:hidden"
+          />
         </div>
-        <PhotoMarquee />
+        <PhotoMarquee
+          items={photos2}
+          direction="down"
+          className="max-lg:hidden"
+        />
       </div>
     </section>
   );

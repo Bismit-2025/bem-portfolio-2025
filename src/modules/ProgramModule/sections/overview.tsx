@@ -1,16 +1,19 @@
 "use client";
+
+import { Button } from "@/components/ui/button";
+
 export default function Overview() {
   const images = [
-    { src: "next.svg", alt: "" },
-    { src: "next.svg", alt: "" },
-    { src: "next.svg", alt: "" },
+    { src: "next.svg", alt: "pic1" },
+    { src: "next.svg", alt: "pic1" },
+    { src: "next.svg", alt: "pic1" },
   ];
 
   return (
-    <section className="flex flex-col w-full justify-center items-center min-h-screen px-20 py-10 max-lg:px-15 max-md:px-10">
+    <section className="flex flex-col w-full justify-center items-center min-h-screen px-20 pb-10 max-lg:px-15 max-md:px-10">
       <div className="grid grid-cols-2 gap-32 max-lg:gap-14 max-md:gap-6 justify-between w-full h-full">
         <div className="flex justify-center flex-col items-start gap-6 max-md:gap-3">
-          <div className="flex flex-col gap-2 bg-linear-to-r text-6xl max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-[#3293EC] to-[#EA3C43] max-lg:text-3xl">
+          <div className="flex flex-col gap-2 bg-linear-to-r text-6xl max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-3xl">
             <h1 className="">Program BEM</h1>
             <h1 className="">Fasilkom UI</h1>
           </div>
@@ -18,13 +21,13 @@ export default function Overview() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
             repudiandae.
           </p>
-          <button
+          <Button
             onClick={() => {
               document
                 .getElementById("our-programs")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-5 py-3 max-md:text-sm bg-[#22629E] text-white rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all"
+            className="max-md:text-xs max-md:py-2 max-md:px-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,28 +42,28 @@ export default function Overview() {
               />
             </svg>
             Explore More
-          </button>
+          </Button>
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-4 max-w-3xl max-md:gap-2 max-md:h-46 h-full aspect-4/3 max-md:aspect-square">
           <div className="bg-gray-200 rounded-lg max-md:rounded-md overflow-hidden">
             <img
               src={images[0].src}
               alt={images[0].alt}
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full hover:scale-110 transform transition-all duration-500"
             />
           </div>
           <div className="bg-gray-200 rounded-lg max-md:rounded-md overflow-hidden">
             <img
-              src={images[0].src}
-              alt={images[0].alt}
-              className="object-cover w-full h-full"
+              src={images[1].src}
+              alt={images[1].alt}
+              className="object-cover w-full h-full hover:scale-110 transform transition-all duration-500"
             />
           </div>
           <div className="col-span-2 bg-gray-200 rounded-lg max-md:rounded-md overflow-hidden">
             <img
-              src={images[0].src}
-              alt={images[0].alt}
-              className="object-cover w-full h-full"
+              src={images[2].src}
+              alt={images[2].alt}
+              className="object-cover w-full h-full hover:scale-110 transform transition-all duration-500"
             />
           </div>
         </div>
