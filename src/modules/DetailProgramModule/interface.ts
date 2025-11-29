@@ -1,17 +1,18 @@
-interface ClientDetail {
+export interface ClientDetail {
   picture: string;
   name: string;
   position: string;
   desc: string;
 }
 
-interface ImpactDetail {
+export interface ImpactDetail {
   src: string;
   title: string;
 }
 
-interface BaseData {
+export interface BaseData {
   id: string;
+  src: string;
   name: string;
   desc: string;
   moments: string[];
@@ -19,10 +20,10 @@ interface BaseData {
   clients: ClientDetail[];
 }
 
-interface ProgramData extends BaseData {
+export interface ProgramData extends BaseData {
   date: string;
 }
 
-interface PortfolioData extends BaseData {
+export interface PortfolioData extends BaseData {
   link: string;
 }

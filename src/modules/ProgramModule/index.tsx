@@ -1,12 +1,13 @@
 import Overview from "./sections/overview";
 import OurPrograms from "./sections/our-programs";
-import { Programs } from "./programs";
+import Contact from "@/components/elements/AnyQuestion/Contact";
 
 const ProgramModule = () => {
   return (
     <>
       <Overview />
-      <OurPrograms data={Programs} />
+      <OurPrograms />
+      <Contact/>
     </>
   );
 };

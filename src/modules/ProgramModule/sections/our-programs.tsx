@@ -1,15 +1,56 @@
-"use client"
+"use client";
 
-export default function OurPrograms({ data }: { data: ProgramData[] }) {
+import { useMemo, useState } from "react";
+import programs from "../programs.const";
+
+type SortType = "latest" | "earliest";
+
+export default function OurPrograms() {
+  const [query, setQuery] = useState("");
+  const [sort, setSort] = useState<SortType>("latest");
+
+  const formatDate = (dateStr: string) => {
+  const [year, month] = dateStr.split("-").map(Number);
+  const monthNames = [
+    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+  ];
+  return `${monthNames[month - 1]} ${year}`;
+};
+
+
+  const filteredAndSortedData = useMemo(() => {
+    return programs
+      .filter((program) => {
+        const lowerQuery = query.toLowerCase();
+        return (
+          program.name.toLowerCase().includes(lowerQuery) ||
+          program.desc.toLowerCase().includes(lowerQuery)
+        );
+      })
+      .sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+
+        if (sort === "latest") {
+          return dateB.getTime() - dateA.getTime();
+        } else {
+          return dateA.getTime() - dateB.getTime();
+        }
+      });
+  }, [programs, query, sort]);
+
   return (
     <section
       id="our-programs"
       className=" flex flex-col w-full justify-center max-md:justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
     >
       <div className="relative flex flex-col items-center w-full gap-8">
-        <h1 className="bg-linear-to-r text-6xl font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-4xl">
-          Our Programs
-        </h1>
+        <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
+          <h1 className=" text-6xl font-poppins font-bold text-transparent max-lg:text-4xl">
+            Our Programs
+          </h1>
+        </div>
         <div className="flex justify-between gap-4 w-full max-md:flex-col max-md:gap-2">
           <div className="flex gap-2 grow items-center">
             <input
@@ -17,6 +58,7 @@ export default function OurPrograms({ data }: { data: ProgramData[] }) {
               name="query"
               className="grow border border-neutral-500 rounded-lg px-4 py-2 outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-300 transition"
               placeholder="Search..."
+              onChange={(e) => setQuery(e.target.value)}
             />
 
             <button className="bg-white rounded-lg p-3 max-md:rounded-full drop-shadow-lg hover:opacity-90 transition-all">
@@ -50,7 +92,10 @@ export default function OurPrograms({ data }: { data: ProgramData[] }) {
               </svg>
               Filter
             </button>
-            <button className="px-5 py-3 max-md:py-1 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
+            <button
+              onClick={() => setSort(sort === "latest" ? "earliest" : "latest")}
+              className="px-5 py-3 max-md:py-1 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:brightness-90 active:brightness-75 transition-all font-semibold"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -67,20 +112,22 @@ export default function OurPrograms({ data }: { data: ProgramData[] }) {
             </button>
           </div>
         </div>
-        {data.map((p, idx) => (
+        {filteredAndSortedData.map((p) => (
           <div
-            key={idx}
-            className="w-full drop-shadow-lg bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-30 max-lg:px-10 max-md:p-4 max-md:gap-3"
+            key={p.id}
+            className="w-full drop-shadow-lg bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-20 max-lg:px-10 max-md:p-4 max-md:gap-3"
           >
-            <div className="bg-gray-200 aspect-3/2 max-md:aspect-video max-md:h-auto h-76 overflow-hidden rounded-xl"></div>
+            <div className="bg-gray-200 aspect-3/2 max-md:aspect-video min-h-72 overflow-hidden rounded-xl shrink-0">
+            {/* <img src={p.src} alt="cover" className="w-full h-full object-cover"/> */}
+            </div>
             <div className="flex flex-col grow gap-6 justify-between">
               <div className="flex flex-col gap-7 max-md:gap-4">
-                <div className="flex w-full justify-between">
+                <div className="flex w-full justify-between items-center">
                   <h1 className="text-3xl font-bold max-md:text-lg">
                     {p.name}
                   </h1>
                   <h6 className="font-bold text-lg max-md:text-xs max-md:text-gray-500 max-md:font-semibold">
-                    {p.date}
+                    {formatDate(p.date)}
                   </h6>
                 </div>
                 <p className="max-md:text-xs">{p.desc}</p>

@@ -1,5 +1,6 @@
 "use client"
 
+import { PortfolioData, ProgramData } from "./interface";
 import Impact from "./sections/impact";
 import OurClients from "./sections/our-clients";
 

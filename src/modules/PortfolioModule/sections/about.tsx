@@ -28,7 +28,7 @@ export default function About() {
           direction="up"
           className="max-lg:hidden"
         />
-        <div className="flex flex-col justify-center items-center gap-10 max-w-150 w-auto">
+        <div className="flex flex-col justify-center items-center gap-10 max-lg:gap-6 max-w-150 w-auto">
           <div className="flex flex-col gap-4 justify-center items-center">
             <h1 className="text-6xl bg-linear-to-r max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-3xl">
               Portfolio
