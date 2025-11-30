@@ -27,7 +27,7 @@ export default function Impact() {
       {/* JUDUL dengan tombol navigasi (Hanya muncul di Mobile) */}
       <div className="flex items-center gap-4">
         {/* Tombol Navigasi (Hanya Tampil di Mobile, Sembunyi di atas MD) */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           {/* Tombol Prev */}
           <button
             onClick={handlePrev}

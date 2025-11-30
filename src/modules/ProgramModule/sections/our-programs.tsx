@@ -122,11 +122,11 @@ export default function OurPrograms() {
             </div>
             <div className="flex flex-col grow gap-6 justify-between">
               <div className="flex flex-col gap-7 max-md:gap-4">
-                <div className="flex w-full justify-between items-center">
+                <div className="flex w-full justify-between items-center gap-4">
                   <h1 className="text-3xl font-bold max-md:text-lg">
                     {p.name}
                   </h1>
-                  <h6 className="font-bold text-lg max-md:text-xs max-md:text-gray-500 max-md:font-semibold">
+                  <h6 className="font-bold text-lg max-md:text-xs max-md:text-gray-500 max-md:font-semibold text-nowrap">
                     {formatDate(p.date)}
                   </h6>
                 </div>

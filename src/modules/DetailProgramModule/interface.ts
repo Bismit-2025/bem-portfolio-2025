@@ -18,12 +18,12 @@ export interface BaseData {
   moments: string[];
   impacts: ImpactDetail[];
   clients: ClientDetail[];
-}
-
-export interface ProgramData extends BaseData {
   date: string;
 }
 
+export interface ProgramData extends BaseData {}
+
 export interface PortfolioData extends BaseData {
   link: string;
+  type: "internal" | "external";
 }

@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 
 export default function Contact() {
   return (
-    <div className="w-full lg:p-20 inline-flex justify-between items-center">
-      <div className="bg-white flex rounded-3xl drop-shadow-lg p-20 w-full">
-        <div className="flex flex-col justify-start items-start gap-10">
-          <div className="self-stretch justify-start text-black text-4xl font-bold font-['Poppins']">
+    <div className="w-full p-5 lg:p-20 inline-flex justify-between items-center">
+      <div className="relative bg-white flex rounded-3xl drop-shadow-lg p-20 max-lg:p-6 w-full items-center">
+        <div className="flex flex-col justify-start items-start gap-10 max-lg:max-w-1/2 max-lg:gap-4">
+          <div className="self-stretch justify-start text-black text-4xl font-bold font-['Poppins'] max-lg:text-2xl">
             Kamu punya pertanyaan?
           </div>
-          <div className="self-stretch justify-start text-black text-xl font-normal font-['Poppins']">
+          <div className="self-stretch justify-start text-black text-xl max-lg:text-sm font-normal font-['Poppins']">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
@@ -32,8 +32,8 @@ export default function Contact() {
             </div>
           </Button>
         </div>
-        <div className="aspect-3/2 shrink-0 h-full">
-          <img src="contact-asset.svg" alt="" className="h-full w-auto" />
+        <div className="max-lg:absolute max-lg:right-5 -z-10 aspect-3/2 shrink-0 h-full max-lg:h-52">
+          <img src="/contact-asset.svg" alt="" className="h-full w-auto" />
         </div>
       </div>
     </div>

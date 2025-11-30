@@ -60,11 +60,11 @@ const Testimony: React.FC<PropType> = ({ slides, options }) => {
                   }`}
                 >
                   <div className="p-10 space-y-4 relative">
-                    <div className="flex gap-6 items-center">
+                    <div className="flex gap-6 items-center justify-center">
                       <img
                         alt="profile"
                         src={slide.profilePic ?? "/brands/compfest-logo.png"}
-                        className="w-30 aspect-square mx-auto bg-neutral-100 dark:bg-neutral-900 rounded-full"
+                        className="w-30 aspect-square bg-neutral-100 dark:bg-neutral-900 rounded-full"
                       />
                       <div>
                         <h3 className="text-xl font-bold text-gray-900">

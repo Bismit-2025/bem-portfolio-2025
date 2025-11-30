@@ -2,9 +2,8 @@ import { ProgramData } from "../DetailProgramModule/interface";
 
 const programs: ProgramData[] = [
   {
-    id: "workshop-desain-ux-dasar",
+    id: "f81d4fae-7dec-11d0-a765-00a0c91e6bf6",
     src: "",
-
     name: "Workshop Desain UX Dasar",
     desc: "Program pelatihan intensif untuk mempelajari prinsip dasar Desain Pengalaman Pengguna (UX) selama 3 hari.",
     date: "2024-04",
@@ -27,7 +26,7 @@ const programs: ProgramData[] = [
     ],
   },
   {
-    id: "pelatihan-keuangan-digital-umkm",
+    id: "9b0d8f64-5a2c-4c3e-b6e1-123456789abc",
     src: "",
     name: "Pelatihan Keuangan Digital UMKM",
     desc: "Serangkaian webinar dan mentoring untuk membantu UMKM bertransisi ke sistem pembayaran dan pencatatan keuangan digital.",
@@ -57,7 +56,7 @@ const programs: ProgramData[] = [
     ],
   },
   {
-    id: "hackathon-solusi-kota-pintar",
+    id: "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
     src: "",
     name: "Hackathon Solusi Kota Pintar",
     desc: "Acara kompetisi coding 48 jam yang berfokus pada pengembangan solusi teknologi untuk masalah perkotaan.",
@@ -87,7 +86,7 @@ const programs: ProgramData[] = [
     ],
   },
   {
-    id: "bootcamp-analisis-data-python",
+    id: "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
     src: "",
     name: "Bootcamp Analisis Data Python",
     desc: "Program intensif selama 6 minggu untuk menguasai Python dan library data science (Pandas, NumPy, Matplotlib).",
@@ -117,7 +116,7 @@ const programs: ProgramData[] = [
     ],
   },
   {
-    id: "seminar-kewirausahaan-hijau",
+    id: "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
     src: "",
     name: "Seminar Kewirausahaan Hijau",
     desc: "Seminar yang membahas peluang bisnis ramah lingkungan dan cara mengintegrasikannya dalam model bisnis saat ini.",

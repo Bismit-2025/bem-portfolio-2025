@@ -1,20 +1,42 @@
-"use client"
+"use client";
 
+import Contact from "@/components/elements/AnyQuestion/Contact";
 import { PortfolioData, ProgramData } from "./interface";
 import Impact from "./sections/impact";
 import OurClients from "./sections/our-clients";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface ProgramDetailProps {
   data: ProgramData;
-  variant: "program";  
+  variant: "program";
 }
 
 interface PortfolioDetailProps {
   data: PortfolioData;
-  variant: "portfolio";  
+  variant: "portfolio";
 }
 
 type DetailProps = ProgramDetailProps | PortfolioDetailProps;
+
+const formatDate = (dateStr: string) => {
+  const [year, month] = dateStr.split("-").map(Number);
+  const monthNames = [
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember",
+  ];
+  return `${monthNames[month - 1]} ${year}`;
+};
 
 const DetailModule = ({ data, variant }: DetailProps) => {
   return (
@@ -26,6 +48,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
           }}
           className="aspect-square w-12 rounded-full drop-shadow-lg bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
         >
+          {/* arrow */}
           <svg
             width="12"
             height="24"
@@ -41,15 +64,30 @@ const DetailModule = ({ data, variant }: DetailProps) => {
         </button>
       </div>
       <div className="flex flex-col gap-6 px-15 max-lg:px-10 max-md:px-5">
-        <div className="flex w-full justify-between max-md:flex-col">
-          <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold bg-linear-to-r text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
-            {data.name}
-          </h1>
-          <h1 className="font-semibold text-3xl max-lg:text-xl">April 2026</h1>
+        <div className="flex w-full justify-between gap-4 items-center max-md:flex-col max-md:items-start">
+          <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
+            <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold text-transparent">
+              {data.name}
+            </h1>
+          </div>
+          {variant === "portfolio" ? (
+            <Link href={data.link} target="_blank">
+              <button className="gap-4 items-center bg-white drop-shadow-lg px-4 py-2 flex rounded-xl text-nowrap font-semibold hover:brightness-95 active:brightness-90">
+                <img
+                  src="/instagram.svg"
+                  alt="icon"
+                  className="aspect-square w-6"
+                />
+                Tautan Portolio
+              </button>
+            </Link>
+          ) : (
+            <h1 className="font-semibold text-3xl max-lg:text-xl">
+              {formatDate(data.date)}
+            </h1>
+          )}
         </div>
-        <p className="text-xl max-md:text-base">
-          {data.desc}
-        </p>
+        <p className="text-xl max-md:text-base">{data.desc}</p>
       </div>
       <div className="overflow-hidden w-full pb-4 md:pb-10 lg:pb-15 flex justify-center">
         <div className="flex w-fit gap-15 max-md:gap-8 justify-center items-center">
@@ -93,6 +131,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
       </div>
       <Impact />
       <OurClients />
+      <Contact />
     </main>
   );
 };
