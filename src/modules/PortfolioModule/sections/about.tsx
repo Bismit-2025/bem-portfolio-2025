@@ -1,21 +1,6 @@
 "use client";
+import { photosLeft, photosRight } from "../portfolio.const";
 import PhotoMarquee from "./photo-marquee";
-
-const photos1 = [
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-];
-
-const photos2 = [
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-  { src: "next.svg", alt: "" },
-];
 
 export default function About() {
   return (
@@ -24,7 +9,7 @@ export default function About() {
       <div className="absolute z-10 -bottom-0.5 w-full h-32 bg-linear-to-t from-white to-transparent"></div>
       <div className="flex gap-15 w-full h-screen overflow-hidden justify-center max-lg:items-start max-lg:pt-15">
         <PhotoMarquee
-          items={photos1}
+          items={photosLeft}
           direction="up"
           className="max-lg:hidden"
         />
@@ -63,18 +48,18 @@ export default function About() {
           </div>
           <div className="h-10"></div>
           <PhotoMarquee
-            items={photos1}
+            items={photosLeft}
             direction="left"
             className="lg:hidden"
           />
           <PhotoMarquee
-            items={photos1}
+            items={photosRight}
             direction="right"
             className="lg:hidden"
           />
         </div>
         <PhotoMarquee
-          items={photos2}
+          items={photosRight}
           direction="down"
           className="max-lg:hidden"
         />

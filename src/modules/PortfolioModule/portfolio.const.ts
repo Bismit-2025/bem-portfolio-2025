@@ -157,4 +157,20 @@ const portfolios: PortfolioData[] = [
   },
 ];
 
-export default portfolios;
+const photosLeft: { src: string; alt: string }[] = [
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+];
+
+const photosRight: { src: string; alt: string }[] = [
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+  { src: "next.svg", alt: "" },
+];
+
+export { portfolios as default, photosLeft, photosRight };

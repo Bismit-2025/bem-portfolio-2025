@@ -56,7 +56,7 @@ export default function OurPrograms() {
   return (
     <section
       id="our-programs"
-      className="flex flex-col w-full justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
+      className="flex flex-col w-full justify-start items-center min-h-screen px-20 max-lg:py-10 py-20 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
     >
       <div className="relative flex flex-col items-center w-full gap-8">
         <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
@@ -65,7 +65,7 @@ export default function OurPrograms() {
           </h1>
         </div>
 
-        <div className="flex justify-between gap-4 w-full max-md:flex-col max-md:gap-2">
+        <div className="flex justify-between gap-4 w-full px-10 max-md:flex-col max-md:gap-2">
           {/* Search Input */}
           <div className="flex gap-2 grow items-center">
             <input
@@ -98,7 +98,7 @@ export default function OurPrograms() {
             {/* 1. Birdep Filter (Dropdown yang Lebih Rapi) */}
             <div className="relative inline-block">
               <select
-                className="appearance-none w-full px-10 py-3 max-md:py-2 bg-pacil-blue-900 border border-gray-300 rounded-xl text-white text-center font-semibold transition-colors hover:bg-pacil-blue-800 cursor-pointer"
+                className="appearance-none w-full px-10 py-3 max-md:py-2 bg-pacil-blue-900 border border-gray-300 rounded-xl text-white text-center font-semibold transition-colors hover:bg-pacil-blue-800 cursor-pointer min-w-6"
                 value={birdepFilter}
                 onChange={(e) => setBirdepFilter(e.target.value)}
               >
@@ -144,7 +144,7 @@ export default function OurPrograms() {
             {/* Sort Button */}
             <button
               onClick={() => setSort(sort === "latest" ? "earliest" : "latest")}
-              className="px-5 py-3 max-md:py-1 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:brightness-90 active:brightness-75 transition-all font-semibold"
+              className="px-5 py-3 max-md:py-2 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:brightness-90 active:brightness-75 transition-all font-semibold"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

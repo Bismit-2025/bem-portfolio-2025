@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import portfolios from "../portfolio.const"; // asumsi ini array PortfolioData
+import  portfolios  from "../portfolio.const";
 
 export default function ProjectFilter() {
   const [activeTab, setActiveTab] = useState<"internal" | "external">(
