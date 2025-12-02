@@ -27,7 +27,7 @@ export default function Overview() {
                 .getElementById("our-programs")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="max-md:text-xs max-md:py-2 max-md:px-3"
+            className="max-md:text-xs max-md:py-2 max-md:px-3 gap-3"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

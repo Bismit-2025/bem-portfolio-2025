@@ -7,6 +7,7 @@ const programs: ProgramData[] = [
     name: "Workshop Desain UX Dasar",
     desc: "Program pelatihan intensif untuk mempelajari prinsip dasar Desain Pengalaman Pengguna (UX) selama 3 hari.",
     date: "2024-04",
+    birdep: "PTI",
     moments: [
       "Sesi pengenalan empathy mapping",
       "Praktek prototyping cepat dengan Figma",
@@ -31,6 +32,7 @@ const programs: ProgramData[] = [
     name: "Pelatihan Keuangan Digital UMKM",
     desc: "Serangkaian webinar dan mentoring untuk membantu UMKM bertransisi ke sistem pembayaran dan pencatatan keuangan digital.",
     date: "2024-05",
+    birdep: "PKKM",
     moments: [
       "Webinar cara penggunaan e-wallet bisnis",
       "Sesi konsultasi 1-on-1 dengan konsultan keuangan",
@@ -61,6 +63,7 @@ const programs: ProgramData[] = [
     name: "Hackathon Solusi Kota Pintar",
     desc: "Acara kompetisi coding 48 jam yang berfokus pada pengembangan solusi teknologi untuk masalah perkotaan.",
     date: "2024-06",
+    birdep: "Bismit",
     moments: [
       "Sesi brainstorming bersama pakar urban",
       "Demo produk final di hadapan juri investor",
@@ -90,6 +93,7 @@ const programs: ProgramData[] = [
     src: "",
     name: "Bootcamp Analisis Data Python",
     desc: "Program intensif selama 6 minggu untuk menguasai Python dan library data science (Pandas, NumPy, Matplotlib).",
+    birdep: "PTI",
     date: "2024-12",
     moments: [
       "Modul pembersihan data menggunakan Pandas",
@@ -120,6 +124,7 @@ const programs: ProgramData[] = [
     src: "",
     name: "Seminar Kewirausahaan Hijau",
     desc: "Seminar yang membahas peluang bisnis ramah lingkungan dan cara mengintegrasikannya dalam model bisnis saat ini.",
+    birdep: "Pengmas",
     date: "2025-03",
     moments: [
       "Diskusi panel dengan pengusaha eco-friendly",

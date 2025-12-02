@@ -2,56 +2,71 @@
 
 import { useMemo, useState } from "react";
 import programs from "../programs.const";
+import { birdepNames } from "@/modules/DetailProgramModule/interface";
 
 type SortType = "latest" | "earliest";
 
 export default function OurPrograms() {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortType>("latest");
+  const [birdepFilter, setBirdepFilter] = useState<string | "All">("All");
 
   const formatDate = (dateStr: string) => {
-  const [year, month] = dateStr.split("-").map(Number);
-  const monthNames = [
-    "Januari", "Februari", "Maret", "April", "Mei", "Juni",
-    "Juli", "Agustus", "September", "Oktober", "November", "Desember"
-  ];
-  return `${monthNames[month - 1]} ${year}`;
-};
-
+    const [year, month] = dateStr.split("-").map(Number);
+    const monthNames = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember",
+    ];
+    return `${monthNames[month - 1]} ${year}`;
+  };
 
   const filteredAndSortedData = useMemo(() => {
     return programs
       .filter((program) => {
         const lowerQuery = query.toLowerCase();
-        return (
+        const matchesQuery =
           program.name.toLowerCase().includes(lowerQuery) ||
-          program.desc.toLowerCase().includes(lowerQuery)
-        );
+          program.desc.toLowerCase().includes(lowerQuery);
+
+        const matchesBirdep =
+          birdepFilter === "All" ? true : program.birdep === birdepFilter;
+
+        return matchesQuery && matchesBirdep;
       })
       .sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
 
-        if (sort === "latest") {
-          return dateB.getTime() - dateA.getTime();
-        } else {
-          return dateA.getTime() - dateB.getTime();
-        }
+        return sort === "latest"
+          ? dateB.getTime() - dateA.getTime()
+          : dateA.getTime() - dateB.getTime();
       });
-  }, [programs, query, sort]);
+  }, [programs, query, sort, birdepFilter]);
 
   return (
     <section
       id="our-programs"
-      className=" flex flex-col w-full justify-center max-md:justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
+      className="flex flex-col w-full justify-start items-center min-h-screen px-20 py-10 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
     >
       <div className="relative flex flex-col items-center w-full gap-8">
         <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
-          <h1 className=" text-6xl font-poppins font-bold text-transparent max-lg:text-4xl">
+          <h1 className="text-6xl font-poppins font-bold text-transparent max-lg:text-4xl">
             Our Programs
           </h1>
         </div>
+
         <div className="flex justify-between gap-4 w-full max-md:flex-col max-md:gap-2">
+          {/* Search Input */}
           <div className="flex gap-2 grow items-center">
             <input
               type="text"
@@ -62,6 +77,7 @@ export default function OurPrograms() {
             />
 
             <button className="bg-white rounded-lg p-3 max-md:rounded-full drop-shadow-lg hover:opacity-90 transition-all">
+              {/* Search Icon */}
               <svg
                 width="20"
                 height="20"
@@ -76,22 +92,56 @@ export default function OurPrograms() {
               </svg>
             </button>
           </div>
-          <div className="flex gap-2">
-            <button className="px-5 py-3 max-md:py-1 bg-pacil-blue-900 text-white text-base rounded-xl flex gap-2.5 items-center hover:opacity-90 transition-all font-semibold">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+
+          {/* Filter & Sort */}
+          <div className="flex gap-2 items-center shrink-0">
+            {/* 1. Birdep Filter (Dropdown yang Lebih Rapi) */}
+            <div className="relative inline-block">
+              <select
+                className="appearance-none w-full px-10 py-3 max-md:py-2 bg-pacil-blue-900 border border-gray-300 rounded-xl text-white text-center font-semibold transition-colors hover:bg-pacil-blue-800 cursor-pointer"
+                value={birdepFilter}
+                onChange={(e) => setBirdepFilter(e.target.value)}
               >
-                <path
-                  d="M3.125 5.83331C3.125 5.66755 3.19085 5.50858 3.30806 5.39137C3.42527 5.27416 3.58424 5.20831 3.75 5.20831H16.25C16.4158 5.20831 16.5747 5.27416 16.6919 5.39137C16.8092 5.50858 16.875 5.66755 16.875 5.83331C16.875 5.99907 16.8092 6.15804 16.6919 6.27525C16.5747 6.39247 16.4158 6.45831 16.25 6.45831H3.75C3.58424 6.45831 3.42527 6.39247 3.30806 6.27525C3.19085 6.15804 3.125 5.99907 3.125 5.83331ZM5.20833 9.99998C5.20833 9.83422 5.27418 9.67525 5.39139 9.55804C5.5086 9.44083 5.66757 9.37498 5.83333 9.37498H14.1667C14.3324 9.37498 14.4914 9.44083 14.6086 9.55804C14.7258 9.67525 14.7917 9.83422 14.7917 9.99998C14.7917 10.1657 14.7258 10.3247 14.6086 10.4419C14.4914 10.5591 14.3324 10.625 14.1667 10.625H5.83333C5.66757 10.625 5.5086 10.5591 5.39139 10.4419C5.27418 10.3247 5.20833 10.1657 5.20833 9.99998ZM7.70833 14.1666C7.70833 14.0009 7.77418 13.8419 7.89139 13.7247C8.0086 13.6075 8.16757 13.5416 8.33333 13.5416H11.6667C11.8324 13.5416 11.9914 13.6075 12.1086 13.7247C12.2258 13.8419 12.2917 14.0009 12.2917 14.1666C12.2917 14.3324 12.2258 14.4914 12.1086 14.6086C11.9914 14.7258 11.8324 14.7916 11.6667 14.7916H8.33333C8.16757 14.7916 8.0086 14.7258 7.89139 14.6086C7.77418 14.4914 7.70833 14.3324 7.70833 14.1666Z"
-                  fill="white"
-                />
-              </svg>
-              Filter
-            </button>
+                <option value="All">All</option>
+                {/* Pastikan `birdepNames` tersedia dan di-import dengan benar */}
+                {birdepNames.map((b) => (
+                  <option key={b} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+
+              {/* Ikon Filter di Kiri */}
+              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.125 5.83331C3.125 5.66755 3.19085 5.50858 3.30806 5.39137C3.42527 5.27416 3.58424 5.20831 3.75 5.20831H16.25C16.4158 5.20831 16.5747 5.27416 16.6919 5.39137C16.8092 5.50858 16.875 5.66755 16.875 5.83331C16.875 5.99907 16.8092 6.15804 16.6919 6.27525C16.5747 6.39247 16.4158 6.45831 16.25 6.45831H3.75C3.58424 6.45831 3.42527 6.39247 3.30806 6.27525C3.19085 6.15804 3.125 5.99907 3.125 5.83331ZM5.20833 9.99998C5.20833 9.83422 5.27418 9.67525 5.39139 9.55804C5.5086 9.44083 5.66757 9.37498 5.83333 9.37498H14.1667C14.3324 9.37498 14.4914 9.44083 14.6086 9.55804C14.7258 9.67525 14.7917 9.83422 14.7917 9.99998C14.7917 10.1657 14.7258 10.3247 14.6086 10.4419C14.4914 10.5591 14.3324 10.625 14.1667 10.625H5.83333C5.66757 10.625 5.5086 10.5591 5.39139 10.4419C5.27418 10.3247 5.20833 10.1657 5.20833 9.99998ZM7.70833 14.1666C7.70833 14.0009 7.77418 13.8419 7.89139 13.7247C8.0086 13.6075 8.16757 13.5416 8.33333 13.5416H11.6667C11.8324 13.5416 11.9914 13.6075 12.1086 13.7247C12.2258 13.8419 12.2917 14.0009 12.2917 14.1666C12.2917 14.3324 12.2258 14.4914 12.1086 14.6086C11.9914 14.7258 11.8324 14.7916 11.6667 14.7916H8.33333C8.16757 14.7916 8.0086 14.7258 7.89139 14.6086C7.77418 14.4914 7.70833 14.3324 7.70833 14.1666Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+
+              {/* Ikon Dropdown di Kanan */}
+              <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M7 10L12 15L17 10H7Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Sort Button */}
             <button
               onClick={() => setSort(sort === "latest" ? "earliest" : "latest")}
               className="px-5 py-3 max-md:py-1 bg-white border-black border-2 text-black text-base rounded-xl flex gap-2.5 items-center hover:brightness-90 active:brightness-75 transition-all font-semibold"
@@ -103,22 +153,25 @@ export default function OurPrograms() {
                 viewBox="0 0 16 16"
                 fill="none"
               >
+                {" "}
                 <path
                   d="M8.97978 5.02C9.07353 5.11363 9.20061 5.16622 9.33311 5.16622C9.46561 5.16622 9.59269 5.11363 9.68644 5.02L10.1664 4.54V11.3333C10.1664 11.4659 10.2191 11.5931 10.3129 11.6869C10.4067 11.7807 10.5338 11.8333 10.6664 11.8333C10.7991 11.8333 10.9262 11.7807 11.02 11.6869C11.1138 11.5931 11.1664 11.4659 11.1664 11.3333V4.54L11.6464 5.02C11.6922 5.06912 11.7474 5.10852 11.8088 5.13585C11.8701 5.16318 11.9363 5.17787 12.0034 5.17906C12.0706 5.18024 12.1372 5.16789 12.1995 5.14275C12.2618 5.1176 12.3183 5.08017 12.3658 5.03269C12.4133 4.98521 12.4507 4.92865 12.4759 4.8664C12.501 4.80414 12.5134 4.73745 12.5122 4.67032C12.511 4.60318 12.4963 4.53697 12.469 4.47564C12.4416 4.41431 12.4022 4.35911 12.3531 4.31333L11.0198 2.98C10.926 2.88636 10.7989 2.83377 10.6664 2.83377C10.5339 2.83377 10.4069 2.88636 10.3131 2.98L8.97978 4.31333C8.88614 4.40708 8.83355 4.53416 8.83355 4.66666C8.83355 4.79916 8.88614 4.92625 8.97978 5.02ZM5.83311 11.46L6.31311 10.98C6.35889 10.9309 6.41409 10.8915 6.47542 10.8641C6.53675 10.8368 6.60296 10.8221 6.6701 10.8209C6.73723 10.8198 6.80392 10.8321 6.86618 10.8572C6.92843 10.8824 6.98499 10.9198 7.03247 10.9673C7.07995 11.0148 7.11738 11.0713 7.14253 11.1336C7.16767 11.1959 7.18002 11.2625 7.17884 11.3297C7.17765 11.3968 7.16296 11.463 7.13563 11.5244C7.1083 11.5857 7.0689 11.6409 7.01978 11.6867L5.68644 13.02C5.59269 13.1136 5.46561 13.1662 5.33311 13.1662C5.20061 13.1662 5.07353 13.1136 4.97978 13.02L3.64644 11.6867C3.59732 11.6409 3.55792 11.5857 3.53059 11.5244C3.50326 11.463 3.48857 11.3968 3.48738 11.3297C3.4862 11.2625 3.49855 11.1959 3.52369 11.1336C3.54884 11.0713 3.58627 11.0148 3.63375 10.9673C3.68123 10.9198 3.73779 10.8824 3.80004 10.8572C3.8623 10.8321 3.92899 10.8198 3.99613 10.8209C4.06326 10.8221 4.12947 10.8368 4.1908 10.8641C4.25214 10.8915 4.30734 10.9309 4.35311 10.98L4.83311 11.46V4.66666C4.83311 4.53406 4.88579 4.40688 4.97956 4.31311C5.07332 4.21934 5.2005 4.16666 5.33311 4.16666C5.46572 4.16666 5.5929 4.21934 5.68666 4.31311C5.78043 4.40688 5.83311 4.53406 5.83311 4.66666V11.46Z"
                   fill="black"
-                />
+                />{" "}
               </svg>
               Sort
             </button>
           </div>
         </div>
+
+        {/* Program List */}
         {filteredAndSortedData.map((p) => (
           <div
             key={p.id}
             className="w-full drop-shadow-lg bg-white rounded-3xl flex max-lg:flex-col max-lg:gap-10 gap-15 py-10 px-20 max-lg:px-10 max-md:p-4 max-md:gap-3"
           >
             <div className="bg-gray-200 aspect-3/2 max-md:aspect-video min-h-72 overflow-hidden rounded-xl shrink-0">
-            {/* <img src={p.src} alt="cover" className="w-full h-full object-cover"/> */}
+              {/* <img src={p.src} alt="cover" className="w-full h-full object-cover" /> */}
             </div>
             <div className="flex flex-col grow gap-6 justify-between">
               <div className="flex flex-col gap-7 max-md:gap-4">
@@ -133,9 +186,7 @@ export default function OurPrograms() {
                 <p className="max-md:text-xs">{p.desc}</p>
               </div>
               <button
-                onClick={() => {
-                  window.location.href = `/program/${p.id}`;
-                }}
+                onClick={() => (window.location.href = `/program/${p.id}`)}
                 className="px-5 py-3 bg-pacil-blue-900 text-white justify-center text-base rounded-lg flex gap-2.5 items-center hover:opacity-90 transition-all"
               >
                 <svg

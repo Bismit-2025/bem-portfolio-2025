@@ -21,7 +21,27 @@ export interface BaseData {
   date: string;
 }
 
-export interface ProgramData extends BaseData {}
+export const birdepNames = [
+  "Adkesma",
+  "Bismit",
+  "Humas",
+  "Olahraga",
+  "Pengmas",
+  "PI",
+  "PKKM",
+  "PSDM",
+  "PTI",
+  "Senbud",
+  "SKI",
+  "Kastrat",
+  "Media",
+] as const;
+
+export type BirdepName = (typeof birdepNames)[number];
+
+export interface ProgramData extends BaseData {
+  birdep: BirdepName;
+}
 
 export interface PortfolioData extends BaseData {
   link: string;
