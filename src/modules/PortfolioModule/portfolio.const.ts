@@ -19,6 +19,10 @@ const portfolios: PortfolioData[] = [
         src: "/icon/impact-brand.svg",
         title: "Peningkatan 50% Pengenalan Merek",
       },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
       { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     clients: [
@@ -44,6 +48,10 @@ const portfolios: PortfolioData[] = [
       "Beta testing dengan 500 pengguna awal.",
     ],
     impacts: [
+      {
+        src: "/icon/impact-download.svg",
+        title: "100.000+ Unduhan dalam Bulan Pertama",
+      },
       {
         src: "/icon/impact-download.svg",
         title: "100.000+ Unduhan dalam Bulan Pertama",
@@ -84,6 +92,10 @@ const portfolios: PortfolioData[] = [
         src: "/icon/impact-time.svg",
         title: "Waktu Pencatatan Stok Berkurang 70%",
       },
+      {
+        src: "/icon/impact-time.svg",
+        title: "Waktu Pencatatan Stok Berkurang 70%",
+      },
     ],
     clients: [
       {
@@ -116,6 +128,10 @@ const portfolios: PortfolioData[] = [
         src: "/icon/impact-traffic.svg",
         title: "Mampu Menangani 10.000 Pengunjung/Hari",
       },
+      {
+        src: "/icon/impact-traffic.svg",
+        title: "Mampu Menangani 10.000 Pengunjung/Hari",
+      },
     ],
     clients: [
       {
@@ -140,6 +156,7 @@ const portfolios: PortfolioData[] = [
       "Laporan metrik engagement.",
     ],
     impacts: [
+      { src: "/icon/impact-reach.svg", title: "Mencapai 5 Juta Akun Unik" },
       { src: "/icon/impact-reach.svg", title: "Mencapai 5 Juta Akun Unik" },
       {
         src: "/icon/impact-engagement.svg",

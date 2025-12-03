@@ -16,7 +16,7 @@ export interface BaseData {
   name: string;
   desc: string;
   moments: string[];
-  impacts: ImpactDetail[];
+  impacts: [ImpactDetail, ImpactDetail, ImpactDetail];
   clients: ClientDetail[];
   date: string;
 }

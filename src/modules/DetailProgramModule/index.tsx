@@ -129,7 +129,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
           </div>
         </div>
       </div>
-      <Impact />
+      <Impact impacts={data.impacts}/>
       <OurClients />
       <Contact />
     </main>

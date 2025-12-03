@@ -43,10 +43,12 @@ const testimonies = [
 
 export default function OurClients() {
   return (
-    <div className="flex flex-col gap-8">
-      <h1 className="text-5xl font-bold bg-linear-to-r text-center text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-4xl">
-        What Our Clients Says
-      </h1>
+    <div className="flex flex-col gap-8 items-center">
+      <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
+        <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold text-transparent text-center">
+          What Our Clients Says
+        </h1>
+      </div>
 
       <Testimony slides={testimonies} />
     </div>

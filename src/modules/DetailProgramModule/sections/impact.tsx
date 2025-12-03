@@ -1,37 +1,33 @@
 "use client";
 
-import React, { useState } from "react";  
-const cardData = [
-  { id: 1, title: "Lorem, ipsum 1." },
-  { id: 2, title: "Lorem, ipsum 2." },
-  { id: 3, title: "Lorem, ipsum 3." },
-];
+import React, { useState } from "react";
+import { ImpactDetail } from "../interface";
 
-export default function Impact() {
+export default function Impact({
+  impacts,
+}: {
+  impacts: [ImpactDetail, ImpactDetail, ImpactDetail];
+}) {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  const totalCards = cardData.length;
-
   const handleNext = () => {
-    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % totalCards);
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % 3);
   };
 
   const handlePrev = () => {
-    setCurrentCardIndex(
-      (prevIndex) => (prevIndex - 1 + totalCards) % totalCards
-    );
+    setCurrentCardIndex((prevIndex) => (prevIndex - 1 + 3) % 3);
   };
 
   return (
-    <section className="relative overflow-hidden w-full flex flex-col justiy-center items-center gap-8 max-md:gap-4 pt-10 max-md:pt-0">
+    <section className="relative overflow-hidden w-full flex flex-col justiy-center items-center gap-8 pt-10 max-md:pt-0">
       {/* JUDUL dengan tombol navigasi (Hanya muncul di Mobile) */}
       <div className="flex items-center gap-4">
         {/* Tombol Navigasi (Hanya Tampil di Mobile, Sembunyi di atas MD) */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-7">
           {/* Tombol Prev */}
           <button
             onClick={handlePrev}
-            className="md:hidden  aspect-square w-8 rounded-full drop-shadow-xl bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
+            className="md:hidden  aspect-square w-10 rounded-full drop-shadow-xl bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
             aria-label="Previous impact card"
           >
             <svg
@@ -48,14 +44,15 @@ export default function Impact() {
             </svg>
           </button>
 
-          <h1 className="font-bold text-5xl max-lg:text-4xl bg-linear-to-r font-poppins text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700">
-            Impact
-          </h1>
-
+          <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
+            <h1 className="text-5xl max-lg:text-4xl text-wrap font-bold text-transparent text-center">
+              Impacts
+            </h1>
+          </div>
           {/* Tombol Next */}
           <button
             onClick={handleNext}
-            className="md:hidden aspect-square w-8 rounded-full drop-shadow-xl bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
+            className="md:hidden aspect-square w-10 rounded-full drop-shadow-xl bg-white border-neutral-100 border hover:brightness-95 flex items-center justify-center transition p-1"
             aria-label="Next impact card"
           >
             <svg
@@ -75,18 +72,19 @@ export default function Impact() {
       </div>
 
       {/* CONTAINER CARD */}
-      <div className="flex gap-6 w-full justify-center px-15  pb-6">
-        {cardData.map((card, index) => (
+      <div className="flex gap-6 w-full justify-center px-15 max-lg:px-10 pb-6">
+        {impacts.map((impact, index) => (
           <div
-            key={card.id}
+            key={index}
             className={`
-              bg-white border border-neutral-100 drop-shadow-lg flex flex-col justify-between items-center overflow-hidden rounded-xl aspect-square 
+              bg-white border border-neutral-100 drop-shadow-lg flex flex-col justify-between items-center overflow-hidden rounded-2xl aspect-square p-10
               w-full lg:w-96 
-              ${index === currentCardIndex ? "max-md:block" : "max-md:hidden"} 
+              ${index === currentCardIndex ? "max-md:flex" : "max-md:hidden"} 
             `}
           >
-            <h1 className="font-bold text-pacil-blue-900 text-lg p-3">
-              {card.title}
+            <img src={impact.src} alt="icon" />
+            <h1 className="font-bold text-pacil-blue-900 text-lg p-3 text-center">
+              {impact.title}
             </h1>
             {/* Isi card lainnya */}
           </div>
