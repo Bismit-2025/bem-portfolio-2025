@@ -6,6 +6,7 @@ import Impact from "./sections/impact";
 import OurClients from "./sections/our-clients";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Moments from './sections/moments';
 
 interface ProgramDetailProps {
   data: ProgramData;
@@ -89,6 +90,7 @@ const DetailModule = ({ data, variant }: DetailProps) => {
         </div>
         <p className="text-xl max-md:text-base">{data.desc}</p>
       </div>
+      <Moments moments={data.moments}/>
       <div className="w-full relative">
         <img src="/impact-bg.svg" alt="icon" className="absolute w-full bottom-6 max-lg:w-7xl max-md:top-1/2" />
         <Impact impacts={data.impacts} />
