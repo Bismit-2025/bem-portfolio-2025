@@ -10,9 +10,15 @@ const portfolios: PortfolioData[] = [
     date: "2024-12",
     link: "https://www.majujaya.com/case-study",
     moments: [
-      "Sesi wawancara mendalam dengan CEO",
-      "Pengembangan 3 konsep logo alternatif",
-      "Peluncuran pedoman merek digital.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
@@ -43,9 +49,15 @@ const portfolios: PortfolioData[] = [
     date: "2024-12",
     link: "https://appstore.com/sehatku",
     moments: [
-      "Wireframing dan desain UI/UX",
-      "Integrasi API untuk data perangkat wearable",
-      "Beta testing dengan 500 pengguna awal.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
@@ -79,9 +91,15 @@ const portfolios: PortfolioData[] = [
     date: "2024-12",
     link: "https://internal.logistik-prima.com/system",
     moments: [
-      "Audit sistem inventaris manual",
-      "Instalasi perangkat keras RFID",
-      "Pelatihan intensif untuk staf gudang.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
@@ -115,9 +133,15 @@ const portfolios: PortfolioData[] = [
     date: "2024-12",
     link: "https://www.gayakita.co.id",
     moments: [
-      "Penentuan arsitektur informasi",
-      "Desain antarmuka produk yang berfokus pada gambar berkualitas tinggi",
-      "Integrasi payment gateway lokal.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
@@ -151,9 +175,15 @@ const portfolios: PortfolioData[] = [
     date: "2024-12",
     link: "https://ig.com/bebassampah-campaign",
     moments: [
-      "Analisis audiens dan penentuan strategi konten",
-      "Peluncuran video viral di TikTok dan Instagram",
-      "Laporan metrik engagement.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       { src: "/icon/impact-reach.svg", title: "Mencapai 5 Juta Akun Unik" },

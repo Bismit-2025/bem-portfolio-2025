@@ -10,12 +10,17 @@ export interface ImpactDetail {
   title: string;
 }
 
+export interface MomentDetail {
+  src: string;
+  title: string;
+}
+
 export interface BaseData {
   id: string;
   src: string;
   name: string;
   desc: string;
-  moments: string[];
+  moments: MomentDetail[];
   impacts: [ImpactDetail, ImpactDetail, ImpactDetail];
   clients: ClientDetail[];
   date: string;

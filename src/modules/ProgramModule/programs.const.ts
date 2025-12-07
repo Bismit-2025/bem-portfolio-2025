@@ -9,12 +9,19 @@ const programs: ProgramData[] = [
     date: "2024-04",
     birdep: "PTI",
     moments: [
-      "Sesi pengenalan empathy mapping",
-      "Praktek prototyping cepat dengan Figma",
-      "Sertifikasi kelulusan.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       { src: "/icon/impact-ux.svg", title: "Peningkatan 40% Kualitas Desain" },
+      { src: "/icon/impact-skill.svg", title: "100 Peserta Tersertifikasi" },
       { src: "/icon/impact-skill.svg", title: "100 Peserta Tersertifikasi" },
     ],
     clients: [
@@ -34,11 +41,21 @@ const programs: ProgramData[] = [
     date: "2024-05",
     birdep: "PKKM",
     moments: [
-      "Webinar cara penggunaan e-wallet bisnis",
-      "Sesi konsultasi 1-on-1 dengan konsultan keuangan",
-      "Akses ke template laporan keuangan digital.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
+      {
+        src: "/icon/impact-finance.svg",
+        title: "90% UMKM Menerapkan Pembayaran Digital",
+      },
       {
         src: "/icon/impact-finance.svg",
         title: "90% UMKM Menerapkan Pembayaran Digital",
@@ -65,14 +82,24 @@ const programs: ProgramData[] = [
     date: "2024-06",
     birdep: "Bismit",
     moments: [
-      "Sesi brainstorming bersama pakar urban",
-      "Demo produk final di hadapan juri investor",
-      "Pemberian hadiah utama.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
         src: "/icon/impact-innovation.svg",
         title: "3 Solusi Prototype Baru Dihasilkan",
+      },
+      {
+        src: "/icon/impact-collaboration.svg",
+        title: "Kemitraan dengan Pemerintah Daerah",
       },
       {
         src: "/icon/impact-collaboration.svg",
@@ -96,14 +123,24 @@ const programs: ProgramData[] = [
     birdep: "PTI",
     date: "2024-12",
     moments: [
-      "Modul pembersihan data menggunakan Pandas",
-      "Proyek akhir analisis sentimen media sosial",
-      "Sesi persiapan wawancara kerja.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
         src: "/icon/impact-hired.svg",
         title: "85% Peserta Mendapat Pekerjaan dalam 3 Bulan",
+      },
+      {
+        src: "/icon/impact-expertise.svg",
+        title: "Mencetak 50 Data Analyst Baru",
       },
       {
         src: "/icon/impact-expertise.svg",
@@ -127,14 +164,24 @@ const programs: ProgramData[] = [
     birdep: "Pengmas",
     date: "2025-03",
     moments: [
-      "Diskusi panel dengan pengusaha eco-friendly",
-      "Panduan sertifikasi produk berkelanjutan",
-      "Networking session.",
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      {
+        src: "/icon/impact-brand.svg",
+        title: "Peningkatan 50% Pengenalan Merek",
+      },
+      { src: "/icon/impact-modern.svg", title: "Citra Merek Lebih Modern" },
     ],
     impacts: [
       {
         src: "/icon/impact-sustain.svg",
         title: "Mendorong 20 Bisnis Baru Berorientasi Lingkungan",
+      },
+      {
+        src: "/icon/impact-awareness.svg",
+        title: "Meningkatkan Kesadaran Bisnis Berkelanjutan",
       },
       {
         src: "/icon/impact-awareness.svg",

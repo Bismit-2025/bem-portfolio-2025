@@ -10,8 +10,8 @@ export default function Overview() {
   ];
 
   return (
-    <section className="flex flex-col w-full justify-center items-center min-h-screen px-20 pb-10 max-lg:px-15 max-md:px-10">
-      <div className="grid grid-cols-2 gap-32 max-lg:gap-14 max-md:gap-6 justify-between w-full h-full">
+    <section className="flex flex-col w-full gap-6 my-20 max-lg:my-16 items-center px-20  max-lg:px-15 max-md:px-10">
+      <div className="grid grid-cols-2 gap-24 max-lg:gap-14 max-md:gap-6 justify-between w-full h-full">
         <div className="flex justify-center flex-col items-start gap-6 max-md:gap-3">
           <div className="flex flex-col gap-2 bg-linear-to-r text-6xl max-md:text-base font-poppins font-bold text-transparent bg-clip-text from-pacil-blue-700 to-pacil-red-700 max-lg:text-3xl">
             <h1 className="">Program BEM</h1>
@@ -44,7 +44,7 @@ export default function Overview() {
             Explore More
           </Button>
         </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4 max-w-3xl max-md:gap-2 max-md:h-46 h-full aspect-4/3 max-md:aspect-square">
+        <div className="grid grid-cols-2 grid-rows-2 gap-4 max-w-3xl max-md:gap-1 w-full aspect-4/3 max-md:aspect-square">
           <div className="bg-gray-200 rounded-lg max-md:rounded-md overflow-hidden">
             <img
               src={images[0].src}
