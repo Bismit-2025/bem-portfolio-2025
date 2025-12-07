@@ -11,7 +11,7 @@ const ProgramModule = () => {
         <img
           src="/square-red.svg"
           alt="icon"
-          className="lg:-top-16 max-lg:-bottom-16 left-0 absolute max-lg:w-10"
+          className="lg:-top-16 max-lg:-bottom-14 left-0 absolute max-lg:w-10"
         />
         <img
           src="/circle-blue.svg"

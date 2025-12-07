@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import programs from "../programs.const";
 import { birdepNames } from "@/modules/DetailProgramModule/interface";
 
@@ -11,21 +11,50 @@ export default function OurPrograms() {
   const [sort, setSort] = useState<SortType>("latest");
   const [birdepFilter, setBirdepFilter] = useState<string | "All">("All");
 
+  // 1. Buat referensi ke elemen section
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // 2. Tambahkan Listener Scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const scrollY = window.scrollY;
+      const windowWidth = window.innerWidth;
+      
+      // Tentukan batas scroll di mana lengkungan mencapai maksimal (misal setelah scroll 300px)
+      const scrollThreshold = 300; 
+
+      // Tentukan radius maksimal
+      // Jika ingin persis '5xl' (sekitar 48px/3rem), ganti angka di bawah jadi 48.
+      // Tapi saya gunakan 226 (desktop) & 96 (mobile) agar sesuai desain awal Anda yang cantik.
+      const isMobile = windowWidth < 768;
+      const maxRadius = isMobile ? 96 : 226; 
+
+      // Hitung progress (0 sampai 1)
+      const progress = Math.min(scrollY / scrollThreshold, 1);
+      
+      // Hitung radius saat ini
+      const currentRadius = progress * maxRadius;
+
+      // Apply style langsung ke DOM (sangat cepat)
+      sectionRef.current.style.borderTopLeftRadius = `${currentRadius}px`;
+      sectionRef.current.style.borderTopRightRadius = `${currentRadius}px`;
+    };
+
+    // Jalankan saat mount
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Panggil sekali di awal untuk set posisi start
+
+    // Bersihkan listener saat unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const formatDate = (dateStr: string) => {
     const [year, month] = dateStr.split("-").map(Number);
     const monthNames = [
-      "Januari",
-      "Februari",
-      "Maret",
-      "April",
-      "Mei",
-      "Juni",
-      "Juli",
-      "Agustus",
-      "September",
-      "Oktober",
-      "November",
-      "Desember",
+      "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+      "Juli", "Agustus", "September", "Oktober", "November", "Desember",
     ];
     return `${monthNames[month - 1]} ${year}`;
   };
@@ -56,7 +85,10 @@ export default function OurPrograms() {
   return (
     <section
       id="our-programs"
-      className="flex flex-col w-full justify-start items-center min-h-screen px-20 max-lg:py-10 py-20 rounded-t-[226px] max-md:rounded-t-[96px] bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
+      ref={sectionRef} // 3. Pasang ref disini
+      // 4. Hapus class 'rounded-t-[...]' static. Kita handle via JS style.
+      // Tambahkan 'transition-all duration-75' jika ingin sedikit smoothing (opsional, tapi direct style biasanya lebih mulus tanpa transition)
+      className="flex flex-col w-full justify-start items-center min-h-screen px-20 max-lg:py-10 py-20 bg-linear-to-b from-pacil-blue-900/20 via-[#AED4F7]/20 to-transparent max-md:px-10"
     >
       <div className="relative flex flex-col items-center w-full gap-8">
         <div className="bg-linear-to-r bg-clip-text from-pacil-blue-700 to-pacil-red-700 pb-3">
@@ -95,7 +127,7 @@ export default function OurPrograms() {
 
           {/* Filter & Sort */}
           <div className="flex gap-2 items-center shrink-0">
-            {/* 1. Birdep Filter (Dropdown yang Lebih Rapi) */}
+            {/* 1. Birdep Filter */}
             <div className="relative inline-block">
               <select
                 className="appearance-none w-full px-10 py-3 max-md:py-2 bg-pacil-blue-900 border border-gray-300 rounded-xl text-white text-center font-semibold transition-colors hover:bg-pacil-blue-800 cursor-pointer min-w-6"
@@ -103,7 +135,6 @@ export default function OurPrograms() {
                 onChange={(e) => setBirdepFilter(e.target.value)}
               >
                 <option value="All">All</option>
-                {/* Pastikan `birdepNames` tersedia dan di-import dengan benar */}
                 {birdepNames.map((b) => (
                   <option key={b} value={b}>
                     {b}
