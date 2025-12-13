@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/button"; 
+import { Button } from "@/components/ui/Button"; 
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
-      <div className="container mx-auto flex h-25 items-center px-4 md:px-5">
+      <div className="container px-8 md:mx-auto flex h-25 items-center">
         
         {/* 1. LOGO SECTION (KIRI) */}
         <div className="flex-1 flex justify-start">
@@ -69,11 +69,11 @@ export default function Navbar() {
         {/* 4. HAMBURGER MENU (MOBILE) */}
         <div className="flex md:hidden flex-1 justify-end">
           <button 
-            className="text-gray-800 focus:outline-none p-2"
+            className="text-gray-800 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-16 6h16"} />
             </svg>
           </button>
         </div>
