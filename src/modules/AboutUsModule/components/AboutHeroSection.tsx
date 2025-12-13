@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/Button";
-import { motion, Variants } from "framer-motion"; // 1. Import Framer Motion
+import { motion, Variants } from "framer-motion"; 
 
 export default function AboutHeroSection() {
   // Data Foto (Tetap)
