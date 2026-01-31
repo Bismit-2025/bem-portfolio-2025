@@ -11,8 +11,12 @@ type ImageProps = {
   title?: string;
 };
 
-type ProgramCardProps = ImageProps & ComponentProps<"div">;
-function ProgramCard({ imageUrl, title, className }: ProgramCardProps) {
+type ProgramImageCardProps = ImageProps & ComponentProps<"div">;
+const ProgramImageCard = ({
+  imageUrl,
+  title,
+  className,
+}: ProgramImageCardProps) => {
   return (
     <div
       className={cn(
@@ -28,7 +32,7 @@ function ProgramCard({ imageUrl, title, className }: ProgramCardProps) {
       />
     </div>
   );
-}
+};
 
 const shapePop: Variants = {
   hidden: { opacity: 0, scale: 0 },
@@ -46,9 +50,9 @@ const shapePop: Variants = {
 
 export default function Hero() {
   return (
-    <section className="min-h-screen ">
-      <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        {/* 2. Top Left Red Square */}
+    <section className="min-h-screen">
+      <div className="absolute inset-0 w-full overflow-hidden h-full pointer-events-none z-0">
+        {/* Top Left Red Square */}
         <motion.div
           variants={shapePop}
           initial="hidden"
@@ -61,7 +65,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* 3. Bottom Left Shapes */}
+        {/* Bottom Left Shapes */}
         <motion.div
           variants={shapePop}
           initial="hidden"
@@ -129,10 +133,22 @@ export default function Hero() {
         </div>
         <div className="flex flex-3 gap-4 h-full flex-col">
           <div className="flex h-60 flex-row gap-4">
-            <ProgramCard imageUrl="/placeholder.jpeg" className="flex-1" />
-            <ProgramCard imageUrl="/placeholder.jpeg" className="flex-1" />
+            <ProgramImageCard
+              imageUrl="/placeholder.jpeg"
+              title="Kucing Tidur"
+              className="flex-1"
+            />
+            <ProgramImageCard
+              imageUrl="/placeholder.jpeg"
+              title="Kucing Tidur"
+              className="flex-1"
+            />
           </div>
-          <ProgramCard imageUrl="/placeholder.jpeg" className="w-full h-72" />
+          <ProgramImageCard
+            imageUrl="/placeholder.jpeg"
+            title="Kucing Tidur"
+            className="w-full h-72"
+          />
         </div>
       </div>
     </section>

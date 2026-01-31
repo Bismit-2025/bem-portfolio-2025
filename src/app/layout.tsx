@@ -24,9 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body
-        className={`${poppins.variable} overflow-hidden font-sans antialiased`}
-      >
+      <body className={`${poppins.variable} font-sans antialiased`}>
         <Navbar />
 
         <main className="min-h-screen">{children}</main>

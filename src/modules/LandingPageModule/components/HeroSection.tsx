@@ -87,7 +87,7 @@ export default function HeroSection() {
       <div className="w-full md:py-20 overflow-hidden relative z-10">
         <div className="container mx-auto px-4 md:px-8 grid grid-cols-2">
           <div className=" md:flex md:flex-col items-start text-left gap-2 lg:gap-6">
-            <h1 className="md:text-5xl lg:text-5xl font-extrabold bg-gradient-to-r from-pacil-blue-500 to-pacil-red-700 bg-clip-text text-transparent">
+            <h1 className="md:text-5xl lg:text-5xl font-extrabold bg-linear-to-r from-pacil-blue-500 to-pacil-red-700 bg-clip-text text-transparent">
               BEM FASILKOM UI
             </h1>
 
@@ -101,7 +101,7 @@ export default function HeroSection() {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </p>
 
-            <Button className="shadow-pacil-blue-200 !text-sm md:!text-base !px-3 !py-1 md:!px-6 md:!py-3 rounded-lg">
+            <Button className="shadow-pacil-blue-200 text-sm! md:text-base! px-3! py-1! md:px-6! md:py-3! rounded-lg">
               Explore More
             </Button>
           </div>
