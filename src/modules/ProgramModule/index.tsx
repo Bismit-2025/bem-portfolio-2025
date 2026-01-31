@@ -1,5 +1,11 @@
+import Hero from "./components/Hero";
+
 const ProgramModule = () => {
-  return <p>Halo Program</p>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };
 
 export default ProgramModule;

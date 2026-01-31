@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@/components/ui/Button"; 
+import { Button } from "../components/ui/button";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -19,7 +19,6 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
       <div className="container px-8 md:mx-auto flex h-25 items-center">
-        
         {/* 1. LOGO SECTION (KIRI) */}
         <div className="flex-1 flex justify-start">
           <Link href="/" className="flex items-center gap-3">
@@ -33,11 +32,11 @@ export default function Navbar() {
             const isActive = pathname === link.href;
             return (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   className={` tracking-wide transition-colors ${
-                    isActive 
-                      ? "text-pacil-blue-900 font-bold" 
+                    isActive
+                      ? "text-pacil-blue-900 font-bold"
                       : "text-gray-400 font-normal"
                   }`}
                 >
@@ -50,30 +49,51 @@ export default function Navbar() {
 
         {/* 3. BUTTON SECTION (KANAN) */}
         <div className="flex-1 hidden md:flex justify-end items-center gap-3">
-          
-          <Button 
-            variant="outline" 
-            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-black hover:border-gray-400">
+          <Button
+            variant="outline"
+            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-black hover:border-gray-400"
+          >
             Button
           </Button>
 
           <Button className="flex items-center gap-2 px-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
             </svg>
             Button
           </Button>
-
         </div>
 
         {/* 4. HAMBURGER MENU (MOBILE) */}
         <div className="flex md:hidden flex-1 justify-end">
-          <button 
+          <button
             className="text-gray-800 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-16 6h16"} />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-16 6h16"}
+              />
             </svg>
           </button>
         </div>
@@ -85,7 +105,7 @@ export default function Navbar() {
           <ul className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   className="block text-sm font-bold text-gray-600 hover:text-pacil-blue-900"
                   onClick={() => setIsOpen(false)}
@@ -95,7 +115,12 @@ export default function Navbar() {
               </li>
             ))}
             <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-gray-100">
-              <Button variant="outline" className="w-full justify-center border-gray-300 text-gray-700">Button</Button>
+              <Button
+                variant="outline"
+                className="w-full justify-center border-gray-300 text-gray-700"
+              >
+                Button
+              </Button>
               <Button className="w-full justify-center">Button</Button>
             </div>
           </ul>
