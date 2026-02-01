@@ -5,35 +5,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ComponentProps } from "react";
 import { motion, type Variants } from "framer-motion";
-
-type ImageProps = {
-  imageUrl: string;
-  title?: string;
-};
-
-type ProgramImageCardProps = ImageProps & ComponentProps<"div">;
-const ProgramImageCard = ({
-  imageUrl,
-  title,
-  className,
-}: ProgramImageCardProps) => {
-  return (
-    <div
-      className={cn(
-        `relative rounded-xl w-full h-full aspect-auto `,
-        className,
-      )}
-    >
-      <Image
-        src={imageUrl}
-        alt={title || "Gambar Program"}
-        layout="fill"
-        className="object-cover  rounded-xl"
-      />
-    </div>
-  );
-};
-
+import ProgramImageCard from "../components/ProgramImageCard";
 const shapePop: Variants = {
   hidden: { opacity: 0, scale: 0 },
   visible: {

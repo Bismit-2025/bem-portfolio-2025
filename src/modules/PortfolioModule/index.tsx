@@ -1,9 +1,11 @@
 import Hero from "./sections/Hero";
+import ProjectList from "./sections/ProjectList";
 
 const PortfolioModule = () => {
   return (
-    <main>
+    <main className="bg-gray-100">
       <Hero />
+      <ProjectList />
     </main>
   );
 };

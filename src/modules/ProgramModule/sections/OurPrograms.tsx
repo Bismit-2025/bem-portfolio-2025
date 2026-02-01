@@ -1,15 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { BiSearch } from "react-icons/bi";
-import Image from "next/image";
-import Link from "next/link";
 import { PROGRAM_BEM } from "../const";
-import { Badge } from "@/components/ui/badge";
 import useScrollRadius from "@/hooks/useScrollRadius";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import ProgramCard from "../components/ProgramCard";
 
 import {
   DropdownMenu,
@@ -28,47 +25,7 @@ import {
 } from "@/components/ui/pagination";
 import { FilterIcon } from "lucide-react";
 
-type ProgramCardProps = {
-  title: string;
-  desc: string;
-  href: string;
-  image?: string;
-  tags: string[];
-};
-
 const ITEMS_PER_PAGE = 3;
-
-const ProgramCard = ({ title, desc, href, image, tags }: ProgramCardProps) => {
-  return (
-    <div className="flex max-md:flex-col lg:flex-row bg-white shadow-md rounded-xl gap-5 px-5 md:px-10 py-10">
-      <div className="flex-1 relative max-md:aspect-video md:w-[26.7rem] md:h-76 rounded-lg">
-        <Image
-          src={"/placeholder.jpeg"}
-          alt={title}
-          fill
-          className="object-cover rounded-lg"
-        />
-      </div>
-
-      <div className="flex flex-2 flex-col gap-3 md:gap-5 text-start">
-        <h1 className="text-lg md:text-3xl font-semibold">{title}</h1>
-        <p>{desc}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {tags.map((t, i) => (
-            <Badge key={i}>{t}</Badge>
-          ))}
-        </div>
-
-        <Link href={href} className="mt-auto">
-          <Button className="w-full gap-3">
-            <BiSearch /> See Details
-          </Button>
-        </Link>
-      </div>
-    </div>
-  );
-};
 
 export default function OurPrograms() {
   const ref = useRef<HTMLDivElement>(null);

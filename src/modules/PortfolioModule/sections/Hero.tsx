@@ -8,7 +8,7 @@ import MarqueeColumn from "../components/MarqueeColumn";
 
 export default function Hero() {
   return (
-    <section className="relative md:px-10 max-md:gap-7  max-md:flex-col flex overflow-hidden max-h-screen md:justify-between bg-white dark:bg-neutral-950">
+    <section className="relative md:px-10 max-md:gap-7  max-md:flex-col flex overflow-hidden max-h-screen md:justify-between  ">
       <MarqueeColumn
         images={LEFT_IMAGES}
         duration={40}
@@ -41,7 +41,7 @@ export default function Hero() {
         reverse={true}
         className="hidden md:flex"
       />
-      <div className="pointer-events-none max-md:hidden absolute bottom-0 left-0 w-full h-96 bg-linear-to-t from-white via-white to-transparent z-20" />
+      <div className="pointer-events-none max-md:hidden absolute bottom-0 left-0 w-full h-96 bg-linear-to-t from-gray-100 via-gray-100 to-transparent z-20" />
     </section>
   );
 }

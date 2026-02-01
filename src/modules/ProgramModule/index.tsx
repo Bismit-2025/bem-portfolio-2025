@@ -1,5 +1,5 @@
-import Hero from "./components/Hero";
-import OurPrograms from "./components/OurPrograms";
+import Hero from "./sections/Hero";
+import OurPrograms from "./sections/OurPrograms";
 
 const ProgramModule = () => {
   return (
