@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { BiSearch } from "react-icons/bi";
@@ -12,6 +12,13 @@ import useScrollRadius from "@/hooks/useScrollRadius";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import {
   Pagination,
   PaginationContent,
   PaginationItem,
@@ -19,6 +26,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { FilterIcon } from "lucide-react";
 
 type ProgramCardProps = {
   title: string;
@@ -68,19 +76,28 @@ export default function OurPrograms() {
 
   const [titleQuery, setTitleQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [filterProgramByTag, setFilterProgramByTag] = useState<string | null>(
+    null,
+  );
 
   const radius = useScrollRadius(ref, {
     maxRadius: isMobile ? 100 : 250,
   });
 
   const filteredPrograms = useMemo(() => {
+    let programs = PROGRAM_BEM;
     const q = titleQuery.trim().toLowerCase();
-    if (!q) return PROGRAM_BEM;
 
-    return PROGRAM_BEM.filter((program) =>
-      program.title.toLowerCase().includes(q),
-    );
-  }, [titleQuery]);
+    if (q) {
+      programs = programs.filter((p) => p.title.toLowerCase().includes(q));
+    }
+
+    if (filterProgramByTag) {
+      programs = programs.filter((p) => p.tags.includes(filterProgramByTag));
+    }
+
+    return programs;
+  }, [titleQuery, filterProgramByTag]);
 
   const totalPage = Math.ceil(filteredPrograms.length / ITEMS_PER_PAGE);
 
@@ -91,7 +108,9 @@ export default function OurPrograms() {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [titleQuery]);
+  }, [titleQuery, filterProgramByTag]);
+
+  const allTags = Array.from(new Set(PROGRAM_BEM.flatMap((p) => p.tags)));
 
   return (
     <section className="min-h-screen">
@@ -116,11 +135,29 @@ export default function OurPrograms() {
             onChange={(e) => setTitleQuery(e.target.value)}
             className="border-black"
           />
-
-          <Button className="bg-white py-2! hover:bg-white/80">
-            <BiSearch className="text-black" />
-            <span className="hidden md:inline text-black">Search</span>
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="bg-white space-x-2 py-2! hover:bg-white/80">
+                <FilterIcon className="text-black" />
+                <span className="hidden md:inline text-black font-semibold">
+                  Filter
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuItem onSelect={() => setFilterProgramByTag(null)}>
+                All
+              </DropdownMenuItem>
+              {allTags.map((t, i) => (
+                <DropdownMenuItem
+                  onSelect={() => setFilterProgramByTag(t)}
+                  key={i}
+                >
+                  {t}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         <div className="flex flex-col gap-5">
