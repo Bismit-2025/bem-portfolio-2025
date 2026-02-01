@@ -1,5 +1,11 @@
+import Hero from "./sections/Hero";
+
 const PortfolioModule = () => {
-  return <p>Halo Portfolio</p>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };
 
 export default PortfolioModule;
