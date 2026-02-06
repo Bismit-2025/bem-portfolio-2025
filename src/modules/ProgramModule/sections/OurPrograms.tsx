@@ -117,6 +117,7 @@ export default function OurPrograms() {
                   }}
                   key={i}
                 >
+                  {/* hey */}
                   {t}
                 </DropdownMenuItem>
               ))}
