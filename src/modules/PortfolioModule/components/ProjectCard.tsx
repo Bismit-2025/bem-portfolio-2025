@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProjectCardProps } from "../type";
 
-const ProjectCard = ({ title, desc, href, image, tags }: ProjectCardProps) => {
+const ProjectCard = ({ title, desc, href, tags }: ProjectCardProps) => {
   return (
     <div className="w-full flex max-md:flex-col lg:flex-row bg-white shadow-md rounded-xl gap-5 px-5 md:px-10 py-10">
       <div className="flex-1 relative max-md:aspect-video md:w-[26.7rem] md:h-76 rounded-lg">

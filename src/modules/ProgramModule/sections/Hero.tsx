@@ -1,9 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { BiSearch } from "react-icons/bi";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import { ComponentProps } from "react";
 import { motion, type Variants } from "framer-motion";
 import ProgramImageCard from "../components/ProgramImageCard";
 const shapePop: Variants = {

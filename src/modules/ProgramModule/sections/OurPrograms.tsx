@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PROGRAM_BEM } from "../const";
@@ -63,10 +63,6 @@ export default function OurPrograms() {
     return filteredPrograms.slice(start, start + ITEMS_PER_PAGE);
   }, [filteredPrograms, currentPage]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [titleQuery, filterProgramByTag]);
-
   const allTags = Array.from(new Set(PROGRAM_BEM.flatMap((p) => p.tags)));
 
   return (
@@ -89,7 +85,10 @@ export default function OurPrograms() {
           <Input
             placeholder="Search program..."
             value={titleQuery}
-            onChange={(e) => setTitleQuery(e.target.value)}
+            onChange={(e) => {
+              setTitleQuery(e.target.value);
+              setCurrentPage(1);
+            }}
             className="border-black"
           />
           <DropdownMenu>
@@ -102,12 +101,20 @@ export default function OurPrograms() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem onSelect={() => setFilterProgramByTag(null)}>
+              <DropdownMenuItem
+                onSelect={() => {
+                  setFilterProgramByTag(null);
+                  setCurrentPage(1);
+                }}
+              >
                 All
               </DropdownMenuItem>
               {allTags.map((t, i) => (
                 <DropdownMenuItem
-                  onSelect={() => setFilterProgramByTag(t)}
+                  onSelect={() => {
+                    setFilterProgramByTag(t);
+                    setCurrentPage(1);
+                  }}
                   key={i}
                 >
                   {t}

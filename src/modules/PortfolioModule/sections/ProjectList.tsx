@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { PROJECT_BEM } from "../const";
 import ProjectCard from "../components/ProjectCard";
 import {

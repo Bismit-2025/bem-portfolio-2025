@@ -4,22 +4,23 @@ import React, { useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, Variants } from "framer-motion";
 
-export default function AboutHeroSection() {
-  // Data Foto (Tetap)
-  const baseImages = [
-    "https://encrypted-tbn0.gstatic.com/images?q= dtbn:ANd9GcSyFcvgVdd0RfOqsMCIwFM4xHUA6iFx3repPg&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrdwwYJPh261kvvxLlnYB7bzK6Q28PYWgJNw&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR8uGEhe9AkRFLS_rgeB-TcaFjHMMq0oQxUw&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Z5stLtpcg51JjE7hzfWqvEchLgP3QL1FgQ&s",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiitTOKGLSNEdYAp-7ui7oQloBFmnNK7t12Q&s",
-  ];
+// Data Foto (Tetap)
+const baseImages = [
+  "https://encrypted-tbn0.gstatic.com/images?q= dtbn:ANd9GcSyFcvgVdd0RfOqsMCIwFM4xHUA6iFx3repPg&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrdwwYJPh261kvvxLlnYB7bzK6Q28PYWgJNw&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR8uGEhe9AkRFLS_rgeB-TcaFjHMMq0oQxUw&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9Z5stLtpcg51JjE7hzfWqvEchLgP3QL1FgQ&s",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiitTOKGLSNEdYAp-7ui7oQloBFmnNK7t12Q&s",
+];
 
-  // Data Statistik (Tetap)
-  const statistics = [
-    { number: "12+", label: "Biro" },
-    { number: "12+", label: "Departemen" },
-    { number: "12+", label: "Program" },
-  ];
+// Data Statistik (Tetap)
+const statistics = [
+  { number: "12+", label: "Biro" },
+  { number: "12+", label: "Departemen" },
+  { number: "12+", label: "Program" },
+];
+
+export default function AboutHeroSection() {
 
   const galleryImages = React.useMemo(
     () => new Array(20).fill(baseImages).flat(),

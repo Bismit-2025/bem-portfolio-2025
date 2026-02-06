@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ProgramCardProps } from "../type";
 
-const ProgramCard = ({ title, desc, href, image, tags }: ProgramCardProps) => {
+const ProgramCard = ({ title, desc, href, tags }: ProgramCardProps) => {
   return (
     <div className="flex max-md:flex-col lg:flex-row bg-white shadow-md rounded-xl gap-5 px-5 md:px-10 py-10">
       <div className="flex-1 relative max-md:aspect-video md:w-[26.7rem] md:h-76 rounded-lg">
