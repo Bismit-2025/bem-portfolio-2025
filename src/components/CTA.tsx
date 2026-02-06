@@ -3,10 +3,10 @@ import { Button } from "./ui/button";
 
 export default function CTA() {
   return (
-    <div className="px-8 py-10 md:px-20 md:py-12 flex flex-col md:flex-row rounded-xl items-center shadow-lg gap-8 md:gap-0 bg-white">
+    <div className="px-8 py-10 md:px-20 md:py-12 flex flex-row rounded-xl items-center shadow-lg gap-8 md:gap-0 bg-white">
       <div className="flex flex-col gap-4 md:gap-10 items-center md:items-start text-center md:text-left">
         <h2 className="text-2xl font-bold md:text-4xl">
-          Kamu punya <br className="md:hidden" /> pertanyaan?
+          Kamu punya pertanyaan?
         </h2>
         <p className="text-sm md:text-base text-gray-600">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
@@ -19,7 +19,7 @@ export default function CTA() {
           Contact Us
         </Button>
       </div>
-      <img src="/cta.svg" alt="CTA icon" className="md:hidden" />
+      <img src="/cta.svg" alt="CTA icon" className="max-md:hidden" />
     </div>
   );
 }

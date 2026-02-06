@@ -21,7 +21,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full px-8 py-12 md:py-20 overflow-hidden md:pt-42 bg-gradient-to-b from-pacil-blue-200 to-[10%] to-[#F8F8F8]">
+    <section className="relative w-full px-8 py-12 md:py-20 overflow-hidden md:pt-42 mb-20">
       {/* --- BACKGROUND SHAPES START --- */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
         {/* 1. Big Gray Blob */}
