@@ -1,5 +1,11 @@
+import Hero from "./sections/Hero";
+
 const DetailModule = () => {
-  return <p>Halo Detail</p>;
+  return (
+    <main>
+      <Hero />
+    </main>
+  );
 };
 
 export default DetailModule;

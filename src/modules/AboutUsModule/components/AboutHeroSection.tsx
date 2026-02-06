@@ -56,12 +56,27 @@ export default function AboutHeroSection() {
           const cardCenter =
             cardWrapper.offsetLeft + cardWrapper.offsetWidth / 2;
           const distance = cardCenter - containerCenter;
+
+          // --- Circular Bend Math ---
+          const bend = 150; // Controls curve depth (pixels)
+          const H = 800; // Horizon/Radius limit (pixels)
+          const B_abs = Math.abs(bend);
+          const R = (H * H + B_abs * B_abs) / (2 * B_abs);
+
+          const effectiveX = Math.min(Math.abs(distance), H);
+          const arc = R - Math.sqrt(R * R - effectiveX * effectiveX);
+
+          // Calculate transforms
+          const translateY = arc; // Arc is positive, CSS translateY positive is down -> "Hill" shape
+
+          const rotateRad = Math.sign(distance) * Math.asin(effectiveX / R);
+          const rotateDeg = rotateRad * (180 / Math.PI);
+
+          const scale = Math.max(0.85, 1 - Math.abs(distance) * 0.0003); // Slightly gentler scaling
+          const zIndex = 100 - Math.round(Math.abs(distance) / 10);
+
           if (Math.abs(distance) < container.clientWidth * 1.5) {
-            const rotate = Math.max(-20, Math.min(20, distance / 35));
-            const translateY = Math.abs(distance) * 0.25;
-            const scale = Math.max(0.85, 1 - Math.abs(distance) * 0.0005);
-            const zIndex = 100 - Math.round(Math.abs(distance) / 10);
-            cardInner.style.transform = `perspective(1000px) translateY(${translateY}px) rotateZ(${rotate}deg) scale(${scale})`;
+            cardInner.style.transform = `perspective(1000px) translateY(${translateY}px) rotateZ(${rotateDeg}deg) scale(${scale})`;
             cardWrapper.style.zIndex = String(zIndex);
           }
         }
