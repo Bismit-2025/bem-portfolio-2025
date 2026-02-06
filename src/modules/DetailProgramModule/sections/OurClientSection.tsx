@@ -8,54 +8,47 @@ const testimonials = [
     id: 1,
     name: "Bahlil",
     role: "Menteri Investasi",
-    image:
-      "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     id: 2,
     name: "Bahlil",
     role: "Menteri Investasi",
-    image:
-      "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     id: 3,
     name: "Bahlil",
     role: "Menteri Investasi",
-    image:
-      "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
   {
     id: 4,
     name: "Bahlil",
     role: "Menteri Investasi",
-    image:
-      "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "https://asset.kompas.com/crops/MdEZZcFYItIBmM808EQXOrL6_L0=/0x0:4664x3109/1200x800/data/photo/2025/03/04/67c6a70245c01.jpg",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
+  
 ];
 
 export default function OurClientSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1,
-    );
+    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === testimonials.length - 1 ? 0 : prev + 1,
-    );
+    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
 
   const getCardStyle = (index: number) => {
     const total = testimonials.length;
-    let offset = index - currentIndex;
+    let offset = (index - currentIndex);
 
     if (offset < -1) offset += total;
     if (offset > 1) offset -= total;
@@ -70,7 +63,7 @@ export default function OurClientSection() {
       // NEXT (Kanan)
       return "translate-x-[90%] md:translate-x-[450px] md:translate-y-[40px] scale-110 opacity-0 md:opacity-40 z-10 blur-[0.7px]";
     } else {
-      // HIDDEN
+      // HIDDEN 
       return "translate-x-0 scale-50 opacity-0 z-0";
     }
   };
@@ -78,6 +71,7 @@ export default function OurClientSection() {
   return (
     <section className="w-full py-24 overflow-hidden">
       <div className="container md:mx-auto px-8">
+        
         {/* JUDUL */}
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-5xl font-black bg-gradient-to-r from-pacil-blue-700 to-pacil-red-700 bg-clip-text text-transparent inline-block pb-2">
@@ -87,10 +81,11 @@ export default function OurClientSection() {
 
         {/* AREA CAROUSEL */}
         <div className="relative flex items-center justify-center h-[450px] w-full max-w-6xl mx-auto">
+          
           {/* TOMBOL PREV */}
           {/* FIX: Tambah transition-all duration-300 active:scale-90 agar pencetan terasa 'membal' */}
-          <button
-            onClick={handlePrev}
+          <button 
+            onClick={handlePrev} 
             className="
               absolute -left-8 md:left-70 z-30 w-10 h-10 md:w-20 md:h-20 
               flex items-center justify-center 
@@ -99,28 +94,11 @@ export default function OurClientSection() {
               cursor-pointer
             "
           >
-            <svg
-              width="80"
-              height="80"
-              viewBox="0 0 9 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-lg hover:drop-shadow-xl transition-all"
-            >
-              <path
-                fill="url(#gradArrow1)"
-                d="M 7 11 L 3 8 Q 0 6 3 4 L 7 1 Q 9 0 9 2 L 9 10 Q 9 12 7 11 Z"
-              />
+            <svg width="80" height="80" viewBox="0 0 9 12" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-lg hover:drop-shadow-xl transition-all">
+              <path fill="url(#gradArrow1)" d="M 7 11 L 3 8 Q 0 6 3 4 L 7 1 Q 9 0 9 2 L 9 10 Q 9 12 7 11 Z"  />
               <defs>
-                <linearGradient
-                  id="gradArrow1"
-                  x1="1"
-                  y1="2"
-                  x2="4"
-                  y2="15"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stopColor="#3293EC" />
+                <linearGradient id="gradArrow1" x1="1" y1="2" x2="4" y2="15" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#3293EC" /> 
                   <stop offset="1" stopColor="#EA3C43" />
                 </linearGradient>
               </defs>
@@ -142,8 +120,8 @@ export default function OurClientSection() {
           ))}
 
           {/* TOMBOL NEXT */}
-          <button
-            onClick={handleNext}
+          <button 
+            onClick={handleNext} 
             className="
               absolute -right-8 md:right-70 z-30 w-10 h-10 md:w-20 md:h-20
               flex items-center justify-center 
@@ -152,53 +130,34 @@ export default function OurClientSection() {
               cursor-pointer
             "
           >
-            <svg
-              width="80"
-              height="80"
-              viewBox="0 0 9 12"
-              xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-lg hover:drop-shadow-xl transition-all"
-            >
-              <path
-                fill="url(#gradArrow2)"
-                d="M 2 1 L 6 4 Q 9 6 6 8 L 2 11 Q 0 12 0 10 L 0 2 Q 0 0 2 1 Z"
-              />
+            <svg width="80" height="80" viewBox="0 0 9 12" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-lg hover:drop-shadow-xl transition-all">
+              <path fill="url(#gradArrow2)" d="M 2 1 L 6 4 Q 9 6 6 8 L 2 11 Q 0 12 0 10 L 0 2 Q 0 0 2 1 Z" />
               <defs>
-                <linearGradient
-                  id="gradArrow2"
-                  x1="1"
-                  y1="2"
-                  x2="4"
-                  y2="15"
-                  gradientUnits="userSpaceOnUse"
-                >
+                <linearGradient id="gradArrow2" x1="1" y1="2" x2="4" y2="15" gradientUnits="userSpaceOnUse">
                   <stop stopColor="#3293EC" />
                   <stop offset="1" stopColor="#EA3C43" />
                 </linearGradient>
               </defs>
             </svg>
           </button>
+
         </div>
+
       </div>
     </section>
   );
 }
 
 // --- KOMPONEN KARTU ---
-function CardContent({ data }: { data: (typeof testimonials)[0] }) {
+function CardContent({ data }: { data: typeof testimonials[0] }) {
   return (
-    <div
-      className={`bg-white rounded-xl border border-1 border-gray-300 p-8 h-[350px] md:h-[450px] flex flex-col items-center gap-2 md:gap-6 shadow-lg transition-shadow duration-500 hover:shadow-xl`}
-    >
+    <div className={`bg-white rounded-xl border border-1 border-gray-300 p-8 h-[350px] md:h-[450px] flex flex-col items-center gap-2 md:gap-6 shadow-lg transition-shadow duration-500 hover:shadow-xl`}>
+      
       {/* Header */}
       <div className="flex items-center gap-1 md:gap-4 my-4">
         <div className="relative md:w-32 md:h-32 w-16 h-16 rounded-full overflow-hidden border-2 border-gray-100 shrink-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={data.image}
-            alt={data.name}
-            className="w-full h-full object-cover"
-          />
+          <img src={data.image} alt={data.name} className="w-full h-full object-cover" />
         </div>
         <div>
           <h4 className="text-xl font-bold text-gray-800">{data.name}</h4>
@@ -212,6 +171,7 @@ function CardContent({ data }: { data: (typeof testimonials)[0] }) {
           {data.text}
         </p>
       </div>
+
     </div>
   );
 }
