@@ -21,15 +21,20 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full px-8 py-12 md:py-20 overflow-hidden md:pt-42 mb-20">
+    <section className="relative w-full px-8 py-12 md:py-20 overflow-hidden md:pt-42 ">
       {/* --- BACKGROUND SHAPES START --- */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
-        {/* 1. Big Gray Blob */}
+        {/* 1. Big Gray Blob -> Now Fasilkom Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="absolute top-[-25%] md:top-[-30%] md:top-[-50%] -right-[15%] w-[70vw] h-[70vw] bg-gray-200/80 rounded-full"
+          style={{
+            backgroundImage: "url('/gaung.svg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="absolute top-[-25%] md:top-30 lg:top-[-50%] -right-[15%] w-[70vw] h-[70vw] rounded-full opacity-80"
         />
 
         {/* 2. Top Left Red Square */}
@@ -91,14 +96,12 @@ export default function HeroSection() {
               BEM FASILKOM UI
             </h1>
 
-            <p className="text-black font-normal text-xs md:text-xl line-clamp-6 mb-2 lg:mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p className="text-black font-normal text-xs md:text-xl pr-7 line-clamp-6 mb-2 lg:mb-6">
+              Badan Eksekutif Mahasiswa Fakultas Ilmu Komputer Universitas
+              Indonesia (BEM Fasilkom UI) merupakan organisasi mahasiswa
+              Fasilkom UI untuk mengabdi dan menciptakan kreasi yang bermakna
+              bagi kepentingan Fasilkom UI dengan memanfaatkan teknologi
+              informasi.
             </p>
 
             <Button className="shadow-pacil-blue-200 text-sm! md:text-base! px-3! py-1! md:px-6! md:py-3! rounded-lg">

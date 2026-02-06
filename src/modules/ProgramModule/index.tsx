@@ -3,7 +3,7 @@ import OurPrograms from "./sections/OurPrograms";
 
 const ProgramModule = () => {
   return (
-    <main className="min-h-screen py-4 mb-10">
+    <main className="min-h-screen ">
       <Hero />
       <OurPrograms />
     </main>

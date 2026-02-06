@@ -92,11 +92,11 @@ export default function OurClientSection() {
           <button
             onClick={handlePrev}
             className="
-              absolute -left-8 md:left-70 z-30 w-10 h-10 md:w-20 md:h-20 
+              absolute -left-8 md:left-4 lg:left-10 z-30 w-10 h-10 md:w-20 md:h-20 
               flex items-center justify-center 
               transition-all duration-300 ease-out 
               hover:scale-110 active:scale-90 
-              cursor-pointer
+              cursor-pointer xl:hidden
             "
           >
             <svg
@@ -145,11 +145,11 @@ export default function OurClientSection() {
           <button
             onClick={handleNext}
             className="
-              absolute -right-8 md:right-70 z-30 w-10 h-10 md:w-20 md:h-20
+              absolute -right-8 md:right-4 lg:right-10 z-30 w-10 h-10 md:w-20 md:h-20
               flex items-center justify-center 
               transition-all duration-300 ease-out 
               hover:scale-110 active:scale-90 
-              cursor-pointer
+              cursor-pointer xl:hidden
             "
           >
             <svg

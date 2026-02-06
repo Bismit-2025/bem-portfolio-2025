@@ -4,6 +4,7 @@ import OurProjectSection from "./components/OurProjectSection";
 import OurBenefitSection from "./components/OurBenefitSection";
 import OurPartnerSection from "./components/OurPartnersSection";
 import OurClientSection from "./components/OurClientSection";
+import ImportantLinksSection from "./components/ImportantLinksSection";
 import CTA from "@/components/CTA";
 
 const LandingPageModule = () => {
@@ -13,6 +14,7 @@ const LandingPageModule = () => {
       <OurProjectSection />
       <OurBenefitSection />
       <OurPartnerSection />
+      <ImportantLinksSection />
       <OurClientSection />
       <div className=" px-10 md:px-20 my-20">
         <CTA />

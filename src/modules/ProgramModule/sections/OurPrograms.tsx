@@ -128,7 +128,7 @@ export default function OurPrograms() {
         </div>
 
         {totalPage > 1 && (
-          <Pagination className="mt-10">
+          <Pagination className="mt-10 mb-10">
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious

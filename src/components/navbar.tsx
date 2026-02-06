@@ -22,7 +22,11 @@ export default function Navbar() {
         {/* 1. LOGO SECTION (KIRI) */}
         <div className="flex-1 flex justify-start">
           <Link href="/" className="flex items-center gap-3">
-            LOGO
+            <img
+              src="/logo/bem-text.png"
+              alt="BEM Fasilkom UI"
+              className="h-8 md:h-10 w-auto object-contain"
+            />
           </Link>
         </div>
 

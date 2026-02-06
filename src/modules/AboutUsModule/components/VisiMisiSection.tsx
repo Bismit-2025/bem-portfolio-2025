@@ -44,7 +44,15 @@ export default function VisiMisiSection() {
           <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
-      content: ""
+      content: (
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          {["Inklusif", "Hadir", "Progresif", "Efektif"].map((val) => (
+            <span key={val} className="px-6 py-3 bg-pacil-blue-50 text-pacil-blue-900 rounded-2xl font-bold border border-pacil-blue-100 shadow-sm">
+              {val}
+            </span>
+          ))}
+        </div>
+      )
     }
   };
 

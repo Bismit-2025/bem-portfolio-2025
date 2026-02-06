@@ -2,101 +2,9 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { UKF_DATA, UKOR_DATA } from "../constants";
 
-// --- DATA DUMMY UNIT ---
-const units = [
-  // --- UKF (SENI) ---
-  {
-    id: "binari",
-    category: "ukf",
-    name: "Binari",
-    logo: "https://api.iconify.design/fluent-emoji-flat:woman-dancing.svg",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?q=80&w=2787&auto=format&fit=crop",
-    description:
-      "Bina Insan Cinta Tari adalah Unit Kegiatan Fakultas (UKF) yang mewadahi minat dan bakat mahasiswa Fakultas Ilmu Komputer (Fasilkom) dalam bidang seni tari. UKF ini berfokus pada pengembangan keterampilan tari mahasiswa melalui berbagai kegiatan, seperti pelatihan rutin dan pertunjukan seni.",
-    instagram: "binari_fasilkom",
-  },
-  {
-    id: "sintaks",
-    category: "ukf",
-    name: "Sintaks",
-    logo: "https://api.iconify.design/fluent-emoji-flat:musical-keyboard.svg",
-    image:
-      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2940&auto=format&fit=crop",
-    description:
-      "Sintaks adalah wadah bagi mahasiswa Fasilkom UI yang memiliki minat dalam bidang musik, baik band maupun solo. Kami sering tampil di acara-acara kampus.",
-    instagram: "sintaks_fasilkom",
-  },
-  {
-    id: "asciipela",
-    category: "ukf",
-    name: "Asciipela",
-    logo: "https://api.iconify.design/fluent-emoji-flat:microphone.svg",
-    image:
-      "https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2940&auto=format&fit=crop",
-    description:
-      "Paduan Suara Mahasiswa Fasilkom UI yang berprestasi dan sering mengisi acara-acara formal maupun informal di lingkungan UI.",
-    instagram: "asciipela",
-  },
-  {
-    id: "teater",
-    category: "ukf",
-    name: "Teater Biru Merah",
-    logo: "https://api.iconify.design/fluent-emoji-flat:performing-arts.svg",
-    image:
-      "https://images.unsplash.com/photo-1507924538820-ede94a04019d?q=80&w=2940&auto=format&fit=crop",
-    description:
-      "Komunitas teater yang mewadahi ekspresi seni peran mahasiswa Fasilkom UI melalui pementasan tahunan yang spektakuler.",
-    instagram: "teaterbirumerah",
-  },
-  {
-    id: "piksel",
-    category: "ukf",
-    name: "Piksel",
-    logo: "https://api.iconify.design/fluent-emoji-flat:camera-with-flash.svg",
-    image:
-      "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=2800&auto=format&fit=crop",
-    description:
-      "Komunitas fotografi dan videografi Fasilkom UI yang mendokumentasikan setiap momen berharga di kampus.",
-    instagram: "piksel_fasilkom",
-  },
-
-  // --- UKO (OLAHRAGA) ---
-  {
-    id: "basket",
-    category: "uko",
-    name: "Basket",
-    logo: "https://api.iconify.design/fluent-emoji-flat:basketball.svg",
-    image:
-      "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2940&auto=format&fit=crop",
-    description:
-      "Tim basket kebanggaan Fasilkom UI yang rutin berlatih dan mengikuti kompetisi antar fakultas (Olimpiade UI).",
-    instagram: "basket_fasilkom",
-  },
-  {
-    id: "futsal",
-    category: "uko",
-    name: "Futsal",
-    logo: "https://api.iconify.design/fluent-emoji-flat:soccer-ball.svg",
-    image:
-      "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2936&auto=format&fit=crop",
-    description:
-      "Wadah bagi mahasiswa yang gemar bermain futsal untuk menyalurkan hobi dan berprestasi.",
-    instagram: "futsal_csui",
-  },
-  {
-    id: "badminton",
-    category: "uko",
-    name: "Badminton",
-    logo: "https://api.iconify.design/fluent-emoji-flat:badminton.svg",
-    image:
-      "https://images.unsplash.com/photo-1626224583764-84786071967f?q=80&w=2940&auto=format&fit=crop",
-    description:
-      "Komunitas bulu tangkis yang aktif mengadakan latihan rutin dan sparing partner.",
-    instagram: "badminton_fasilkom",
-  },
-];
+const units = [...UKF_DATA, ...UKOR_DATA];
 
 export default function UnitSection() {
   const [activeCategory, setActiveCategory] = useState<"ukf" | "uko">("ukf");
@@ -205,7 +113,7 @@ export default function UnitSection() {
             <div className="flex flex-col pt-4 gap-4 md:gap-8 md:pt-8">
               {/* Header: Logo & Nama */}
               <div className="flex items-center gap-5">
-                <div className="w-8 h-8 md:w-16md:h-16 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center p-3 shadow-sm shrink-0">
+                <div className="w-14 h-14 md:w-24 md:h-24 md:w-16md:h-16 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center p-3 shadow-sm shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={currentUnit.logo}

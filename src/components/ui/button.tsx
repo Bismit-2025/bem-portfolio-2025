@@ -30,11 +30,11 @@ export const buttonVariants = cva(
   },
 );
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, children, ...props }, ref) => {
+  ({ className, variant, size, children, ...props }, ref) => {
     return (
       <button
         ref={ref}
-        className={cn(buttonVariants({ variant }), className)}
+        className={cn(buttonVariants({ variant, size }), className)}
         {...props}
       >
         {children}

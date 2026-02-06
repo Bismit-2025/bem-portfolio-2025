@@ -1,188 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { BUREAUS_DATA } from "../constants";
+import cloudinaryLoader from "@/lib/cloudinaryLoader";
+import Image from "next/image";
 
-const bureaus = [
-  {
-    id: "pi",
-    shortName: "PI",
-    fullName: "Pengurus Inti",
-    description: "",
-    programs: [],
-    instagram: "bemfasilkomui",
-    members: [],
-  },
-  {
-    id: "bismit",
-    shortName: "Bismit",
-    fullName: "Bisnis dan Kemitraan",
-    description:
-      "Biro Bismit adalah biro yang bertugas untuk menunjang internal BEM Fasilkom UI dari segi finansial yaitu dengan mencari sumber dana potensial dari usaha dan bisnis yang memanfaatkan Teknologi Informasi (TI) maupun non-TI. Beberapa program kerja yang dimiliki biro ini adalah IT Project, Vendorship, Partnership, & Sponsorship (VPS), dan Sayembara Project IT.",
-    programs: [
-      {
-        title: "Skenakan Pacil",
-        description:
-          "Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
-        image:
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
-      },
-      {
-        title: "Skenakan Pacil",
-        description:
-          "Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
-        image:
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
-      },
-      {
-        title: "Skenakan Pacil",
-        description:
-          "Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
-        image:
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
-      },
-      {
-        title: "Skenakan Pacil",
-        description:
-          "Lorem ipsum dolor sit amet consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore.",
-        image:
-          "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
-      },
-    ],
-    instagram: "bismit.bemfasilkom",
-    members: [
-      {
-        name: "Martin Braithwaite",
-        role: "Paduka Raja",
-        image:
-          "https://assets.goal.com/images/v3/blt5ebf408cf244e34a/f037a8fa54c9fbf4bce42d1deb5ff8796a315c6b.png?auto=webp&format=pjpg&width=3840&quality=60",
-      },
-      {
-        name: "Martin Braithwaite",
-        role: "Paduka Raja",
-        image:
-          "https://assets.goal.com/images/v3/blt5ebf408cf244e34a/f037a8fa54c9fbf4bce42d1deb5ff8796a315c6b.png?auto=webp&format=pjpg&width=3840&quality=60",
-      },
-      {
-        name: "Martin Braithwaite",
-        role: "Paduka Raja",
-        image:
-          "https://assets.goal.com/images/v3/blt5ebf408cf244e34a/f037a8fa54c9fbf4bce42d1deb5ff8796a315c6b.png?auto=webp&format=pjpg&width=3840&quality=60",
-      },
-      {
-        name: "Martin Braithwaite",
-        role: "Paduka Raja",
-        image:
-          "https://assets.goal.com/images/v3/blt5ebf408cf244e34a/f037a8fa54c9fbf4bce42d1deb5ff8796a315c6b.png?auto=webp&format=pjpg&width=3840&quality=60",
-      },
-      {
-        name: "Martin Braithwaite",
-        role: "Paduka Raja",
-        image:
-          "https://assets.goal.com/images/v3/blt5ebf408cf244e34a/f037a8fa54c9fbf4bce42d1deb5ff8796a315c6b.png?auto=webp&format=pjpg&width=3840&quality=60",
-      },
-    ],
-  },
-  {
-    id: "ski",
-    shortName: "SKI",
-    fullName: "Sekretariat & Kesekretarian",
-    description:
-      "Bertanggung jawab atas administrasi, surat menyurat, dan inventaris BEM Fasilkom UI.",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "psdm",
-    shortName: "PSDM",
-    fullName: "Pengembangan SDM",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "adkesma",
-    shortName: "Adkesma",
-    fullName: "Advokasi Kesejahteraan Masyarakat",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "pengmas",
-    shortName: "Pengmas",
-    fullName: "Pengabdian Masyarakat",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "pti",
-    shortName: "PTI",
-    fullName: "Pengembangan TI",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "pkkm",
-    shortName: "PKKM",
-    fullName: "PKKM",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "senbud",
-    shortName: "Senbud",
-    fullName: "Seni dan Budaya",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "olahraga",
-    shortName: "Olahraga",
-    fullName: "Departemen Olahraga",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "kastrat",
-    shortName: "Kastrat",
-    fullName: "Kajian Strategis",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "media",
-    shortName: "Media",
-    fullName: "Media Informasi",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-  {
-    id: "humas",
-    shortName: "Humas",
-    fullName: "Hubungan Masyarakat",
-    description: "",
-    programs: [],
-    instagram: "",
-    members: [],
-  },
-];
+const bureaus = BUREAUS_DATA;
 
 export default function TimKamiSection() {
   // State
@@ -320,8 +143,12 @@ export default function TimKamiSection() {
                 <div className="">
                   {/* Header Biro */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="p-4 bg-blue-200 rounded-full">
-                      {/* Icon Biro (Placeholder) */}
+                    <div className="p-2 md:p-4 bg-white rounded-full border border-gray-100 shadow-sm w-12 h-12 md:w-20 md:h-20 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={activeBiro.logo}
+                        alt={activeBiro.fullName}
+                        className="w-full h-full object-contain"
+                      />
                     </div>
                     <h3 className="text-xl md:text-4xl font-semibold text-black mt-1">
                       {activeBiro.fullName}
@@ -338,6 +165,7 @@ export default function TimKamiSection() {
                     <div className="mb-12">
                       <a
                         href={`https://instagram.com/${activeBiro.instagram}`}
+                        target="_blank"
                         rel="noopener noreferrer"
                       >
                         {/* TOMBOL IG TEXT GRADIENT */}
@@ -418,9 +246,12 @@ export default function TimKamiSection() {
                           >
                             {/* FOTO */}
                             <div className="relative w-full aspect-[1/1] rounded-t-2xl overflow-hidden">
-                              <img
+                              <Image
                                 src={member.image}
                                 alt={member.name}
+                                width={200}
+                                height={200}
+                                loader={cloudinaryLoader}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                               />
                             </div>

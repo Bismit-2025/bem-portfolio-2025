@@ -1,50 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import { KEPANITIAAN_DATA } from "../constants";
 
-// --- DATA DUMMY ---
-const committees = [
-  {
-    id: 1,
-    name: "Compfest",
-    logo: "https://api.iconify.design/fluent-emoji-flat:technologist.svg",
-    image:
-      "https://awsimages.detik.net.id/community/media/visual/2023/07/27/menteri-investasi-bahlil-lahadalia_43.jpeg?w=600&q=90",
-    description:
-      "COMPFEST merupakan acara teknologi informasi terbesar yang diselenggarakan mahasiswa di Indonesia.",
-    period: "Mei - November",
-  },
-  {
-    id: 2,
-    name: "Open House",
-    logo: "https://api.iconify.design/fluent-emoji-flat:school.svg",
-    image:
-      "https://awsimages.detik.net.id/community/media/visual/2023/07/27/menteri-investasi-bahlil-lahadalia_43.jpeg?w=600&q=90",
-    description:
-      "Open House Fasilkom UI adalah acara tahunan untuk memperkenalkan lingkungan Fasilkom UI kepada calon mahasiswa.",
-    period: "September - November",
-  },
-  {
-    id: 3,
-    name: "Betis",
-    logo: "https://api.iconify.design/fluent-emoji-flat:books.svg",
-    image:
-      "https://awsimages.detik.net.id/community/media/visual/2023/07/27/menteri-investasi-bahlil-lahadalia_43.jpeg?w=600&q=90",
-    description:
-      "Bimbingan Belajar Gratis Fasilkom UI adalah bentuk pengabdian masyarakat berupa bimbingan belajar intensif.",
-    period: "Januari - Mei",
-  },
-  {
-    id: 4,
-    name: "Perak",
-    logo: "https://api.iconify.design/fluent-emoji-flat:speech-balloon.svg",
-    image:
-      "https://awsimages.detik.net.id/community/media/visual/2023/07/27/menteri-investasi-bahlil-lahadalia_43.jpeg?w=600&q=90",
-    description:
-      "Mengadakan Pesta Rakyat untuk semua civitas fasilkom ui dengan menyelenggarakan lomba serta banyak kegiatan menarik lainnya",
-    period: "Desember",
-  },
-];
+const committees = KEPANITIAAN_DATA;
 
 export default function KepanitiaanSection() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -198,7 +157,13 @@ export default function KepanitiaanSection() {
                     {/* Body Text (PERUBAHAN DISINI) */}
                     <div className="relative z-10 -mt-12 bg-white rounded-t-2xl pt-6 px-6 pb-8 md:px-10 flex flex-col h-[320px] md:h-[400px]">
                       <div className="flex flex-row items-center mb-4 justify-start">
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gray-100 flex items-center justify-center mr-4 md:mr-6 shrink-0"></div>
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white border border-gray-100 flex items-center justify-center mr-4 md:mr-6 shrink-0 overflow-hidden p-2">
+                          <img
+                            src={item.logo}
+                            alt="logo"
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
                         <h3 className="text-xl md:text-3xl font-bold pr-16 ">
                           {item.name}
                         </h3>
