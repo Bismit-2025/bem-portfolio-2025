@@ -1,10 +1,14 @@
 import CircularGallery from "@/components/CircularGallery";
 import CircularProgramCard from "../components/CircularProgramCard";
+import { ChevronLeftIcon } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen py-20">
+    <section className="py-20">
       <div className="flex flex-col gap-4 px-10">
+        <button className="bg-white rounded-full shadow-md  w-fit p-3 cursor-pointer mb-5">
+          <ChevronLeftIcon className="size-6" />
+        </button>
         <h2 className="text-xl md:text-4xl  font-extrabold">
           <span className="bg-linear-to-r from-pacil-blue-700 to-pacil-red-700 bg-clip-text text-transparent">
             Nama Program

@@ -22,7 +22,7 @@ export default function CircularProgramCard({
         className,
       )}
     >
-      <div className="relative h-[200px] md:h-[280px] w-full overflow-hidden bg-gray-100">
+      <div className="relative h-[300px] md:h-[280px] w-full overflow-hidden bg-gray-100">
         <img
           src={image}
           alt={title}
@@ -32,7 +32,7 @@ export default function CircularProgramCard({
       </div>
 
       {/* Body Text */}
-      <div className="relative z-10 -mt-12 bg-white rounded-t-2xl pt-6 px-6 pb-8 md:px-10 flex flex-col h-[70px]">
+      <div className="relative z-99 -mt-12 bg-white rounded-t-2xl pt-6 px-6 pb-8 md:px-10 flex flex-col h-[70px]">
         <div className=" items-center mb-4 justify-center">
           <h2 className="text-xl md:text-4xl text-center font-extrabold">
             <span className="bg-linear-to-r from-pacil-blue-700 to-pacil-red-700 bg-clip-text text-transparent">
