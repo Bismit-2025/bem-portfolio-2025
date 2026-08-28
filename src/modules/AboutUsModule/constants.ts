@@ -320,9 +320,9 @@ export const BUREAUS_DATA = [
         image: "/placeholder.jpeg",
       },
       {
-        title: "Portofolio Website",
+        title: "Portfolio Website",
         description:
-          "Portofolio Website adalah program jangka pendek yang bertujuan menampilkan profil BEM Fasilkom UI secara lebih profesional and mudah diakses.",
+          "Portfolio Website adalah program jangka pendek yang bertujuan menampilkan profil BEM Fasilkom UI secara lebih profesional and mudah diakses.",
         image: "/placeholder.jpeg",
       },
       {

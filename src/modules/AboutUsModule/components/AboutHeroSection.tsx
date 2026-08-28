@@ -24,7 +24,7 @@ export default function AboutHeroSection() {
 
   const galleryImages = React.useMemo(
     () => new Array(20).fill(baseImages).flat(),
-    [baseImages],
+    [],
   );
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationFrameId = useRef<number | null>(null);

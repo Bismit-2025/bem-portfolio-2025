@@ -13,11 +13,11 @@ export default function Navbar() {
     { label: "BERANDA", href: "/" },
     { label: "TENTANG KAMI", href: "/about-us" },
     { label: "PROGRAM", href: "/program" },
-    { label: "PORTOFOLIO", href: "/portfolio" },
+    { label: "PORTFOLIO", href: "/portfolio" },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white border-b border-gray-100">
+    <nav className="sticky top-0 z-100 w-full bg-white border-b border-gray-100">
       <div className="container px-8 md:mx-auto flex h-25 items-center">
         {/* 1. LOGO SECTION (KIRI) */}
         <div className="flex-1 flex justify-start">

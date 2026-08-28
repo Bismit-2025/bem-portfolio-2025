@@ -121,7 +121,6 @@ export default function CircularGallery({
 
       if (firstItem && nextSetItem) {
         const setWidth = nextSetItem.offsetLeft - firstItem.offsetLeft;
-        const maxScroll = container.scrollWidth - container.clientWidth;
 
         if (container.scrollLeft >= setWidth * 2) {
           container.scrollLeft -= setWidth;
